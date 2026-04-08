@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { SiNextdotjs, SiTailwindcss, SiDocker, SiFigma, SiPhp, SiPostgresql, SiRuby, SiRubyonrails, SiBootstrap } from "react-icons/si";
+import { SiNextdotjs, SiTailwindcss, SiFigma, SiPhp, SiPostgresql, SiRuby, SiRubyonrails, SiBootstrap } from "react-icons/si";
 
 export function Aboutme(){
     return(
