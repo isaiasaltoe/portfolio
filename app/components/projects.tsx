@@ -1,4 +1,4 @@
-import { SiNextdotjs, SiTailwindcss, SiDocker, SiFigma, SiPhp, SiPostgresql } from "react-icons/si";
+import { SiNextdotjs, SiTailwindcss, SiFigma, SiPhp, SiPostgresql } from "react-icons/si";
 import { ProjectCard } from "./project-card";
 
 const projects = [
@@ -11,7 +11,6 @@ const projects = [
     icons: [
       <SiNextdotjs key="next" title="Next.js" />,
       <SiTailwindcss key="tailwind" title="Tailwind CSS" />,
-      <SiDocker key="docker" title="Docker" />,
       <SiFigma key="figma" title="Figma" />,
     ],
   },
