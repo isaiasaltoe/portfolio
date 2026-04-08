@@ -15,7 +15,7 @@ export function Aboutme(){
                         {/* Área da foto dentro da polaroid */}
                         <div className="w-52 h-60 md:w-76.5 md:h-86.5 bg-gray-200 overflow-hidden">
                           <Image
-                            src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/eu.png`}
+                            src={`${""}/eu.png`}
                             alt="Foto de perfil"
                             width={306}
                             height={346}

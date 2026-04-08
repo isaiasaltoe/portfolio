@@ -6,7 +6,7 @@ const projects = [
     title: "Portfolio Pessoal",
     description: "Criei este portfólio para ser a vitrine dos meus projetos e um ambiente prático para testar novas tecnologias.",
     repoUrl: "https://github.com/isaiasaltoe/portfolio",
-    image: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/poao.png`,
+    image: `${""}/poao.png`,
     imageAlt: "Foto do Projeto Portfolio",
     icons: [
       <SiNextdotjs key="next" title="Next.js" />,
@@ -21,7 +21,7 @@ const sogeufes = [
     title: "SogeUFES",
     description: "O SogeUFES foi desenvolvido para resolver um problema proposto por um professor: os alunos da UFES estavam com dificuldade para organizar grupos de estudo e encontrar salas disponíveis. Minha solução, construída em grupo, foi criar uma plataforma onde os estudantes podem facilmente criar grupos e reservar espaços de estudo.",
     repoUrl: "https://github.com/isaiasaltoe/sogeufes",
-    image: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/teste.jpeg`,
+    image: `${""}/teste.jpeg`,
     imageAlt: "Foto do Projeto Portfolio",
     icons: [
       <SiPhp key="php" title="PHP" />,
