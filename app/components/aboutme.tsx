@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { SiNextdotjs, SiTailwindcss, SiDocker, SiFigma, SiPhp, SiPostgresql, SiRuby, SiRubyonrails, SiBootstrap } from "react-icons/si";
 
 export function Aboutme(){
@@ -13,9 +14,11 @@ export function Aboutme(){
                       <div className="rotate-3 hover:scale-101 transition-all duration-300 bg-white p-2 pb-10 md:p-3 md:pb-14 shadow-[4px_6px_20px_rgba(0,0,0,2)] rounded-sm">
                         {/* Área da foto dentro da polaroid */}
                         <div className="w-52 h-60 md:w-76.5 md:h-86.5 bg-gray-200 overflow-hidden">
-                          <img
+                          <Image
                             src="/eu.png"
                             alt="Foto de perfil"
+                            width={306}
+                            height={346}
                             className="w-full h-full object-cover "
                           />
                         </div>
