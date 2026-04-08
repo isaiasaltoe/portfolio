@@ -24,7 +24,7 @@ export function Hero() {
         &gt; <span ref={el} />
       </h1>
       <p className="text-[#525F7F] text-base md:text-xl mt-10 md:mt-20 font-light">
-        Sou desenvolvedor Full Stack na{" "}
+        Sou estudante de Ciência da Computação na UFES e desenvolvedor Full Stack na{" "}
         <a href="https://v360.io/" target="_blank" rel="noopener noreferrer" className="text-[#747FE0] hover:underline font-medium">V360</a>. <br /> {" "}
         Gosto de solucionar (e as vezes criar) problemas.{" "} <br />
         Confira alguns de meus{" "}

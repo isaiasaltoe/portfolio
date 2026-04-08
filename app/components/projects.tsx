@@ -6,7 +6,7 @@ const projects = [
     title: "Portfolio Pessoal",
     description: "Criei este portfólio para ser a vitrine dos meus projetos e um ambiente prático para testar novas tecnologias.",
     repoUrl: "https://github.com/isaiasaltoe/portfolio",
-    image: "/teste.jpeg",
+    image: "/poao.png",
     imageAlt: "Foto do Projeto Portfolio",
     icons: [
       <SiNextdotjs key="next" title="Next.js" />,

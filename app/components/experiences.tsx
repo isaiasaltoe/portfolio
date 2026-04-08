@@ -17,21 +17,21 @@ const experiences: Experience[] = [
     company: "V360",
     period: "Fev 2026 - Atual",
     description:
-      "lorem lorem lorem lorem loremloremloremloremloremloremloremloremloremloremloremlore",
+      "- Realizo a manutenção e evolução de um SaaS de gestão de notas fiscais desenvolvido em Ruby on Rails na V360, garantindo a estabilidade e a melhoria contínua da plataforma.\n- Atuo na gestão e acompanhamento dos serviços prestados por colaboradores terceirizados em integrações SAP, assegurando a qualidade e o alinhamento das entregas.\n- Conduzo análises técnicas para diagnóstico e resolução de bugs, contribuindo para a confiabilidade e a experiência do usuário na plataforma.",
   },
   {
     title: "Desenvolvedor Voluntário Full Stack",
     company: "Cinética Jr",
     period: "Jul 2025 - Fev 2026",
     description:
-      "- Desenvolvi e mantive projetos utilizando Next.js, JavaScript, HTML, CSS, PHP, PostgreSQL e Bootstrap.\n\n- Colaborei de perto com uma equipe multidisciplinar, aprimorando minhas habilidades de trabalho em equipe e comunicação.\n\n- Realizei levantamento e análise de requisitos, traduzindo as necessidades dos clientes em soluções técnicas práticas.\n\n- Interagi diretamente com os clientes, aprimorando minha capacidade de gerenciar expectativas e garantir a satisfação.",
+      "- Desenvolvi e mantive projetos utilizando Next.js, JavaScript, HTML, CSS, PHP, PostgreSQL e Bootstrap.\n- Colaborei de perto com uma equipe multidisciplinar, aprimorando minhas habilidades de trabalho em equipe e comunicação.\n- Realizei levantamento e análise de requisitos, traduzindo as necessidades dos clientes em soluções técnicas práticas.\n- Interagi diretamente com os clientes, aprimorando minha capacidade de gerenciar expectativas e garantir a satisfação.",
   },
   {
     title: "Desenvolvedor Full Stack",
     company: "Contera IO",
     period: "Ago 2025 - Dez 2025",
     description:
-      "- Auxiliei na implementação de novas funcionalidades e correções de bugs em uma aplicação Ruby on Rails, seguindo boas práticas de programação.\n\n- Desenhei a UI/UX do novo site da empresa e contribuí para o desenvolvimento do front-end utilizando Next.js e Tailwind.",
+      "- Auxiliei na implementação de novas funcionalidades e correções de bugs em uma aplicação Ruby on Rails, seguindo boas práticas de programação.\n- Desenhei a UI/UX do novo site da empresa e contribuí para o desenvolvimento do front-end utilizando Next.js e Tailwind.",
   },
   {
     title: "Diretor de Marketing",

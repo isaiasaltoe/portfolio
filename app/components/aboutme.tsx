@@ -10,13 +10,13 @@ export function Aboutme(){
                   <div className="conteudo-sobre-mim flex flex-col md:flex-row items-center justify-around w-full px-6 md:px-0 gap-10 md:gap-0">
                     <div className="foto flex justify-center items-center">
                       {/* Container da polaroid: rotação leve + sombra realista */}
-                      <div className="rotate-3 bg-white p-2 pb-10 md:p-3 md:pb-14 shadow-[4px_6px_20px_rgba(0,0,0,2)] rounded-sm">
+                      <div className="rotate-3 hover:scale-101 transition-all duration-300 bg-white p-2 pb-10 md:p-3 md:pb-14 shadow-[4px_6px_20px_rgba(0,0,0,2)] rounded-sm">
                         {/* Área da foto dentro da polaroid */}
                         <div className="w-52 h-60 md:w-76.5 md:h-86.5 bg-gray-200 overflow-hidden">
                           <img
                             src="/eu.png"
                             alt="Foto de perfil"
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover "
                           />
                         </div>
                       </div>
