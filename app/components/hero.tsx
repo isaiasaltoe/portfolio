@@ -27,7 +27,7 @@ export function Hero() {
         Sou estudante de Ciência da Computação na UFES e desenvolvedor Full Stack na{" "}
         <a href="https://v360.io/" target="_blank" rel="noopener noreferrer" className="text-[#747FE0] hover:underline font-medium">V360</a>. <br /> {" "}
         Gosto de solucionar (e as vezes criar) problemas.{" "} <br />
-        Confira alguns de meus{" "}
+        Confira alguns dos meus{" "}
         <a href="#projects" className="text-[#747FE0] hover:underline font-medium">projetos</a> abaixo.
       </p>
     </section>
