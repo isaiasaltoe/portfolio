@@ -19,7 +19,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="about" className="max-w-7xl mx-auto px-6 md:px-10 pt-16 md:pt-30 font-normal text-[#747FE0]">
+    <section id="about" className="max-w-7xl mx-auto px-6 md:px-10 pt-36 md:pt-40 font-normal text-[#747FE0]">
       <h1 className="text-3xl sm:text-5xl md:text-7xl">
         &gt; <span ref={el} />
       </h1>
