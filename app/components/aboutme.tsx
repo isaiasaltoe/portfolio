@@ -26,7 +26,7 @@ export function Aboutme(){
                     </div>
                     <div className="texto w-full md:w-4/10 text-base md:text-xl font-light text-[#525F7F]">
                         <h1>
-                          Sempre fui muito curioso desde criança. Essa curiosidade acabou me levando para o campo da Ciência da Computação.  Meu objetivo é construir uma carreira de sucesso, e eu sou muito dedicado a alcançar isso.  Se você acredita que podemos trabalhar juntos, entre em <a href="https://v360.io/" target="_blank" rel="noopener noreferrer" className="text-[#747FE0] hover:underline font-medium">contato</a>, eu estou sempre aberto a novas ideias e oportunidades de aprender! 
+                          Sempre fui muito curioso desde criança. Essa curiosidade acabou me levando para o campo da Ciência da Computação.  Meu objetivo é construir uma carreira de sucesso, e eu sou muito dedicado a alcançar isso.  Se você acredita que podemos trabalhar juntos, entre em <a href="#contact" rel="noopener noreferrer" className="text-[#747FE0] hover:underline font-medium">contato</a>, eu estou sempre aberto a novas ideias e oportunidades de aprender! 
                         </h1>
                         <h1>Minhas principais tecnologias são: 
                           
