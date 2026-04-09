@@ -5,7 +5,7 @@ import { SlSocialLinkedin } from "react-icons/sl";
 import { TiPhone } from "react-icons/ti";
 export function Contact(){
     return(
-    <section id="projects" className="w-full flex flex-col items-center">
+    <section id="contact" className="w-full flex flex-col items-center">
       <h2 className="text-3xl md:text-4xl text-center my-16 md:my-35 text-[#747FE0] container">
         Contato
       </h2>
