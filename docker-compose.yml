@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"   # porta_do_host:porta_do_container
+      - "3000:80"   # porta_do_host:porta_do_container
     environment:
       - NODE_ENV=production
     restart: always   # reinicia automaticamente se cair
