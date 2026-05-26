@@ -15,10 +15,7 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            cd /home/ubuntu/portfolio
-            
+            cd /home/ubuntu/portfolio           
             git pull origin master
-            
-            # Se você usa docker compose, isso reconstrói e reinicia os containers
-            docker compose down
-            docker compose up -d --build
+            docker-compose down
+            docker-compose up -d --build
