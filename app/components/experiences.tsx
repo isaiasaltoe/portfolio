@@ -20,18 +20,18 @@ const experiences: Experience[] = [
       "- Realizo a manutenção e evolução de um SaaS de gestão de notas fiscais desenvolvido em Ruby on Rails na V360, garantindo a estabilidade e a melhoria contínua da plataforma.\n- Atuo na gestão e acompanhamento dos serviços prestados por colaboradores terceirizados em integrações SAP, assegurando a qualidade e o alinhamento das entregas.\n- Conduzo análises técnicas para diagnóstico e resolução de bugs, contribuindo para a confiabilidade e a experiência do usuário na plataforma.",
   },
   {
-    title: "Desenvolvedor Voluntário Full Stack",
-    company: "Cinética Jr",
-    period: "Jul 2025 - Fev 2026",
-    description:
-      "- Desenvolvi e mantive projetos utilizando Next.js, JavaScript, HTML, CSS, PHP, PostgreSQL e Bootstrap.\n- Colaborei de perto com uma equipe multidisciplinar, aprimorando minhas habilidades de trabalho em equipe e comunicação.\n- Realizei levantamento e análise de requisitos, traduzindo as necessidades dos clientes em soluções técnicas práticas.\n- Interagi diretamente com os clientes, aprimorando minha capacidade de gerenciar expectativas e garantir a satisfação.",
-  },
-  {
     title: "Desenvolvedor Full Stack",
     company: "Contera IO",
     period: "Ago 2025 - Dez 2025",
     description:
       "- Auxiliei na implementação de novas funcionalidades e correções de bugs em uma aplicação Ruby on Rails, seguindo boas práticas de programação.\n- Desenhei a UI/UX do novo site da empresa e contribuí para o desenvolvimento do front-end utilizando Next.js e Tailwind.",
+  },
+  {
+    title: "Desenvolvedor Full Stack",
+    company: "Cinética Jr",
+    period: "Jul 2025 - Fev 2026",
+    description:
+      "- Desenvolvi e mantive projetos utilizando Next.js, JavaScript, HTML, CSS, PHP, PostgreSQL e Bootstrap.\n- Colaborei de perto com uma equipe multidisciplinar, aprimorando minhas habilidades de trabalho em equipe e comunicação.\n- Realizei levantamento e análise de requisitos, traduzindo as necessidades dos clientes em soluções técnicas práticas.\n- Interagi diretamente com os clientes, aprimorando minha capacidade de gerenciar expectativas e garantir a satisfação.",
   },
   {
     title: "Diretor de Marketing",
@@ -40,6 +40,13 @@ const experiences: Experience[] = [
     description:
       "Como diretor de marketing, trabalhei como design focado em experiência do usuário, identidade visual e comunicação eficaz. Apliquei princípios de UI/UX para garantir que layouts fossem intuitivos e visualmente atraentes para diferentes públicos. Usando ferramentas como Figma.",
   },
+  {
+    title: "Ciência da Computação",
+    company: "UFES",
+    period: "Out 2022 - Atual",
+    description:
+    "Optei pelo curso de Ciência da Computação na UFES pela afinidade natural que sempre tive com tecnologia e pelo gosto em resolver problemas. A escolha pela UFES foi motivada pela base sólida que a universidade oferece e pela oportunidade de conviver e aprender com profissionais de excelência, o que torna o ambiente acadêmico ainda mais enriquecedor para minha formação."
+  }
 ];
 
 // Hook que detecta quando um elemento entra na tela (viewport)

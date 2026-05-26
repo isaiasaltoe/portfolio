@@ -1,10 +1,10 @@
-import { SiNextdotjs, SiTailwindcss, SiFigma, SiPhp, SiPostgresql } from "react-icons/si";
+import { SiNextdotjs, SiTailwindcss, SiFigma, SiPhp, SiPostgresql, SiLinux, SiDocker } from "react-icons/si";
 import { ProjectCard } from "./project-card";
 
 const projects = [
   {
     title: "Portfolio Pessoal",
-    description: "Criei este portfólio para ser a vitrine dos meus projetos e um ambiente prático para testar novas tecnologias.",
+    description: "Criei este portfólio para ser a vitrine dos meus projetos e um ambiente prático para testar novas tecnologias. Ele roda em uma VPS dentro de um container Docker, com deploy automático configurado via GitHub Actions.",
     repoUrl: "https://github.com/isaiasaltoe/portfolio",
     image: `${""}/poao.png`,
     imageAlt: "Foto do Projeto Portfolio",
@@ -12,6 +12,8 @@ const projects = [
       <SiNextdotjs key="next" title="Next.js" />,
       <SiTailwindcss key="tailwind" title="Tailwind CSS" />,
       <SiFigma key="figma" title="Figma" />,
+      <SiDocker key="docker" title="Docker"/>,
+      <SiLinux key="linux" title="Figma" />
     ],
   },
 ];
