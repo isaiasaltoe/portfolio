@@ -28,7 +28,7 @@ export function Aboutme(){
                         <h1>
                           Sempre fui muito curioso desde criança. Essa curiosidade acabou me levando para o campo da Ciência da Computação.  Meu objetivo é construir uma carreira de sucesso, e eu sou muito dedicado a alcançar isso.  Se você acredita que podemos trabalhar juntos, entre em <a href="#contact" rel="noopener noreferrer" className="text-[#747FE0] hover:underline font-medium">contato</a>, eu estou sempre aberto a novas ideias e oportunidades de aprender! 
                         </h1>
-                        <h1>Minhas principais tecnologias são 
+                        <h1>Minhas principais tecnologias são:
                           
                           <div className="flex text-4xl mt-3 gap-3"> 
                             <SiRuby key="Ruby" className="text-red-700" title="Ruby"/>
