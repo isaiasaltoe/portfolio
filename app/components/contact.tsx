@@ -26,9 +26,9 @@ export function Contact(){
                 <CgMail className="text-3xl" title="Email"/>
                 <span className="flex items-center">isaiasaltoe7@gmail.com</span>
             </a>
-            <a href="https://drive.google.com/file/d/1HNOFXVOzt9xPUUHVcH5_YWNvp_5uHKt2/view" target="_blank" className="social hover:text-[#747FE0] transition-colors text-2xl font-light flex text-[#525F7F] gap-1">
+            <a href="https://drive.google.com/file/d/1yx8frXsX25Vh3P63fmYi0DvIZZ4iiTRN/view?usp=sharing" target="_blank" className="social hover:text-[#747FE0] transition-colors text-2xl font-light flex text-[#525F7F] gap-1">
                 <CgClipboard className="text-3xl" title="My resume"/>
-                <span className="flex items-center">My resume</span>
+                <span className="flex items-center">Meu currículo</span>
             </a>
         </div>
     </section>
