@@ -28,7 +28,7 @@ export function Contact(){
             </a>
             <a href="https://drive.google.com/file/d/1yx8frXsX25Vh3P63fmYi0DvIZZ4iiTRN/view?usp=sharing" target="_blank" className="social hover:text-[#747FE0] transition-colors text-2xl font-light flex text-[#525F7F] gap-1">
                 <CgClipboard className="text-3xl" title="My resume"/>
-                <span className="flex items-center">Meu currículo</span>
+                <span className="flex items-center">Currículo</span>
             </a>
         </div>
     </section>
