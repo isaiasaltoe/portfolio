@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 
 // Rabiscos de caderno nas margens, tirados de coisas que eu uso e estudo de verdade
-// (gmanager, todolist, cardapio-SD e cálculo). São só decoração, então ficam
+// (gmanager, todolist e cálculo). São só decoração, então ficam
 // escondidos dos leitores de tela.
 
 type DoodleProps = {
@@ -221,43 +221,7 @@ export function WeightValidationDoodle({ className }: DoodleProps) {
   )
 }
 
-// 5. Ciclo de vida de um pod sob o Chaos Mesh (cardapio-SD).
-export function PodChaosDoodle({ className }: DoodleProps) {
-  return (
-    <Sketch viewBox="0 0 180 230" className={className}>
-      <Label x={8} y={18} size={14} red rotate={-3}>
-        chaos mesh vs k8s
-      </Label>
-
-      <ellipse cx={90} cy={50} rx={40} ry={16} />
-      <Label x={66} y={55}>Running</Label>
-
-      {/* pod-kill */}
-      <Arrow d="M128 58 C 152 70, 160 96, 154 118" head="M148 111 L154 119 L160 111" red />
-      <Label x={140} y={88} size={13} red>
-        pod-kill
-      </Label>
-
-      <ellipse cx={128} cy={140} rx={46} ry={16} />
-      <Label x={96} y={145}>Terminated</Label>
-
-      <Arrow d="M110 156 C 104 172, 96 180, 84 186" head="M90 180 L83 187 L92 190" />
-      <Label x={110} y={182} size={12}>recria</Label>
-
-      <ellipse cx={58} cy={198} rx={40} ry={16} />
-      <Label x={36} y={203}>Pending</Label>
-
-      <Arrow d="M24 188 C 8 150, 14 90, 50 60" head="M41 61 L50 60 L48 69" />
-      <Label x={2} y={130} size={12}>ready</Label>
-
-      <Label x={84} y={226} size={13} red rotate={-2}>
-        minReplicas: 3
-      </Label>
-    </Sketch>
-  )
-}
-
-// 6. Integrais simples de Cálculo.
+// 5. Integrais simples de Cálculo.
 export function IntegralsDoodle({ className }: DoodleProps) {
   return (
     <Sketch viewBox="0 0 180 210" className={className}>
@@ -317,9 +281,15 @@ export function HeartDoodle({ className }: DoodleProps) {
         <path d="M60 98 C 30 76, 8 58, 10 34 C 12 14, 38 6, 52 22 C 56 26, 58 30, 60 34 C 62 28, 68 18, 80 14 C 100 10, 114 24, 110 44 C 106 64, 84 80, 60 98 Z" />
         <path d="M58 92 C 34 74, 14 56, 16 36" opacity={0.5} />
       </g>
-      <Label x={33} y={62} size={30} red>
-        I + L
-      </Label>
+      {/* letras traçadas à mão (na fonte de anotação o L parecia um C) */}
+      <g stroke="var(--color-red-pen)" strokeWidth={2.4}>
+        {/* I */}
+        <path d="M35 38 L36 68 M29 38 L42 37 M30 68 L42 68" />
+        {/* + */}
+        <path d="M53 53 L67 52 M60 46 L60 60" />
+        {/* L */}
+        <path d="M76 37 L77 68 L93 67" />
+      </g>
     </Sketch>
   )
 }
