@@ -4,7 +4,7 @@ services:
   nextjs:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: dockerfile   # nome exato do arquivo (Linux diferencia maiúsculas)
     ports:
       - "3000:80"   # porta_do_host:porta_do_container
     environment:
