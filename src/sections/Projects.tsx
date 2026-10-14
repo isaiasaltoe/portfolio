@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { IconArrowLeft, IconArrowRight } from '@tabler/icons-react'
+import { RelationalDoodle } from '../components/Doodles'
 import { GithubActivity } from '../components/GithubActivity'
 import { MarginNote } from '../components/MarginNote'
 import { ProjectCard } from '../components/ProjectCard'
@@ -22,7 +23,16 @@ export function Projects() {
     'sketch-border rounded-full p-2 text-graphite transition-transform hover:-translate-y-0.5 active:translate-y-0.5'
 
   return (
-    <Section id="projetos" title={t.projects.title} note={<MarginNote>{t.projects.note}</MarginNote>}>
+    <Section
+      id="projetos"
+      title={t.projects.title}
+      note={
+        <>
+          <MarginNote>{t.projects.note}</MarginNote>
+          <RelationalDoodle className="mt-40 w-full rotate-2 opacity-80" />
+        </>
+      }
+    >
       {/* Projetos lado a lado, rolando na horizontal e "encaixando" em cada card */}
       <div ref={scroller} className="flex snap-x snap-mandatory gap-10 overflow-x-auto px-2 pt-3 pb-6">
         {projects.map((project, i) => (

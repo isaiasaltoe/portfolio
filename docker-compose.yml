@@ -1,0 +1,12 @@
+services:
+  # O nome "nextjs" ficou da versão antiga; mantido pra o `docker compose down`
+  # do deploy continuar derrubando o container que já está rodando na VPS.
+  nextjs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"   # porta_do_host:porta_do_container
+    environment:
+      - NODE_ENV=production
+    restart: always   # reinicia automaticamente se cair

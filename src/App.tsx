@@ -1,3 +1,4 @@
+import { DevFlowDoodle, GutterDoodle, MiniErDoodle } from './components/Doodles'
 import { Navbar } from './components/Navbar'
 import { PencilFilter } from './components/PencilFilter'
 import { Scribble } from './components/Scribble'
@@ -19,8 +20,14 @@ function App() {
       <Navbar />
       <main>
         <Hero />
+        <GutterDoodle side="right" offset={-40}>
+          <MiniErDoodle />
+        </GutterDoodle>
         <Projects />
         <Experiences />
+        <GutterDoodle side="left" offset={60}>
+          <DevFlowDoodle />
+        </GutterDoodle>
         <About />
         <Contact />
       </main>
