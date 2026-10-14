@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio v4
 
-## Getting Started
+Portfolio pessoal de Isaías Altoé.
 
-First, run the development server:
+## Sobre
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Site estático de portfolio, sem backend. O projeto também serve para aprender React,
+então a arquitetura é simples: usa bem os recursos do React (componentes, props,
+estado, hooks) sem over engineering.
+
+## Stack
+
+- **React** + **TypeScript**
+- **Vite** (dev server e build estático)
+- **Tailwind CSS** (estilização)
+
+Sem roteador: o site é uma página única com navegação por âncoras entre as seções.
+
+## Seções
+
+Mesma estrutura da versão anterior (branch `master`), em uma única página:
+
+1. **Início** — apresentação (hero)
+2. **Projetos** — cards com os projetos
+3. **Experiências** — carreira profissional
+4. **Sobre mim** — quem sou, tecnologias
+5. **Contato** — links e formas de contato
+
+O site é bilíngue (português e inglês), com o seletor "PT / EN" na navbar.
+Textos da interface ficam em `src/i18n/translations.ts`; textos dos dados
+(projetos, experiências) usam o tipo `Localized` com `{ pt, en }`.
+
+## Estrutura de pastas
+
+```
+src/
+  components/   # componentes reutilizáveis (Navbar, ProjectCard, ...)
+  sections/     # uma seção por arquivo (Hero, Projects, Experiences, About, Contact)
+  data/         # conteúdo em arquivos .ts (projetos, experiências, links)
+  hooks/        # hooks próprios (usePhraseCycle, useRevealOnScroll)
+  i18n/         # traduções e contexto de idioma
+  assets/       # imagens e ícones importados pelo código
+  App.tsx       # monta a página com as seções
+  main.tsx      # ponto de entrada
+public/         # arquivos servidos como estão (favicon, currículo PDF)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Princípio: **conteúdo separado da apresentação**. Projetos e experiências ficam
+em `src/data/` como arrays tipados, e os componentes só fazem `.map()` sobre eles.
+Adicionar um projeto novo = editar um arquivo de dados, sem mexer em JSX.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Design
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Estética **lápis + sketchbook**: papel claro, traço de grafite tremido e
+anotações em caneta vermelha na margem.
 
-## Learn More
+- **Cores e fontes:** tokens em `src/index.css` (`@theme`). Patrick Hand no texto,
+  Architects Daughter nos títulos, Caveat nas anotações.
+- **Traço tremido:** filtro SVG `#pencil` (`src/components/PencilFilter.tsx`),
+  usado pelas classes `sketch-border`, `pen-circle` e `pen-circle-hover`.
+- **Outros recursos:** `scratch` (palavra riscada), `hatch` (hachura de rascunho),
+  `pencil-photo` (foto em tons de cinza), `<MarginNote>` e `<Scribble>`.
 
-To learn more about Next.js, take a look at the following resources:
+## Deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Mesmo fluxo da versão anterior:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Push na branch `master` dispara o GitHub Action `.github/workflows/deploy.yml`
+2. O Action entra na VPS via SSH (secrets `VPS_HOST`, `VPS_USERNAME`, `VPS_SSH_KEY`),
+   vai em `/home/ubuntu/portfolio`, faz `git pull` e roda `docker compose up -d --build`
+3. O `Dockerfile` tem dois estágios:
+   - **build:** `node:20-alpine` roda `npm install` e `npm run build` (gera `dist/`)
+   - **serve:** `nginx:alpine` serve o conteúdo de `dist/`
+4. O `docker-compose.yml` expõe o container na porta `3000` da VPS (`3000:80`)
 
-## Deploy on Vercel
+## Rodando localmente
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm install
+npm run dev      # servidor de desenvolvimento
+npm run build    # build de produção em dist/
+npm run preview  # testa o build localmente
+```

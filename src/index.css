@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+/* Estética "lápis": papel claro, grafite cinza e caneta vermelha para anotações.
+   Os "initial" apagam os padrões do Tailwind, então só existe o que está aqui. */
+@theme {
+  --color-*: initial;
+  --color-paper: #f8f6f1;
+  --color-white: #ffffff;
+  --color-graphite: #2b2b2b; /* títulos */
+  --color-pencil: #4a4a4a; /* texto */
+  --color-pencil-light: #6f6f6f; /* texto secundário */
+  --color-smudge: #d9d5cc; /* linhas e traços finos */
+  --color-red-pen: #c7362a; /* anotações e destaques */
+  --color-eraser: #f2b5ab; /* borracha */
+
+  --font-*: initial;
+  --font-body: "Patrick Hand", cursive;
+  --font-title: "Architects Daughter", cursive;
+  --font-note: "Caveat", cursive;
+
+  /* Borracha: o texto some com borda suave enquanto a borracha
+     esfrega de um lado pro outro e solta farelos. */
+  --animate-erase-text: erase-text 1.6s linear forwards;
+  --animate-erase-smudge: erase-smudge 1.6s linear forwards;
+  --animate-eraser-move: eraser-move 1.6s linear forwards;
+  --animate-eraser-scrub: eraser-scrub 0.14s ease-in-out infinite alternate;
+  --animate-crumb: crumb 0.9s ease-in both;
+
+
+  @keyframes erase-text {
+    from {
+      mask-position: 100% 0;
+    }
+    to {
+      mask-position: 0 0;
+    }
+  }
+  @keyframes erase-smudge {
+    from {
+      clip-path: inset(0 100% 0 0);
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+  @keyframes eraser-move {
+    from {
+      left: -10%;
+    }
+    to {
+      left: 110%;
+    }
+  }
+  @keyframes eraser-scrub {
+    from {
+      transform: translate(-7px, -3px) rotate(-28deg);
+    }
+    to {
+      transform: translate(7px, 3px) rotate(-20deg);
+    }
+  }
+  @keyframes crumb {
+    0% {
+      opacity: 0;
+      transform: translate(0, 0) rotate(0);
+    }
+    15% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(var(--crumb-x, 6px), 30px) rotate(160deg);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper font-body text-lg text-pencil antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-title text-graphite;
+  }
+
+  a {
+    @apply text-graphite underline decoration-smudge decoration-2 underline-offset-4 transition-colors hover:decoration-red-pen;
+  }
+
+  ::selection {
+    @apply bg-red-pen/20;
+  }
+}
+
+/* Borda tremida de lápis. Fica num pseudo-elemento para o filtro
+   (definido em <PencilFilter />) não deformar o texto de dentro. */
+@utility sketch-border {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2px solid currentColor;
+    border-radius: inherit;
+    filter: url(#pencil);
+    pointer-events: none;
+  }
+}
+
+/* Círculo de caneta vermelha em volta do elemento. */
+@utility pen-circle {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -6px -12px;
+    border: 2px solid var(--color-red-pen);
+    border-radius: 50%;
+    filter: url(#pencil);
+    pointer-events: none;
+    transition: opacity 0.2s;
+  }
+}
+
+/* Ângulo animável, usado para "desenhar" o círculo aos poucos. */
+@property --circle-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+/* Igual ao pen-circle, mas o círculo é desenhado em volta no hover,
+   como uma caneta circulando. Ao tirar o mouse, ele se desfaz mais rápido. */
+@utility pen-circle-hover {
+  @apply pen-circle;
+
+  &::before {
+    mask-image: conic-gradient(from -100deg, #000 var(--circle-angle), transparent 0);
+    transition: --circle-angle 0.25s ease-in;
+  }
+  &:hover::before {
+    --circle-angle: 360deg;
+    transition: --circle-angle 0.45s ease-out;
+  }
+}
+
+/* Mesmo traço e tempo do pen-circle-hover, mas desenhado quando o botão
+   fica ativo (aria-pressed), como no seletor de idioma. */
+@utility pen-circle-pressed {
+  @apply pen-circle;
+
+  &::before {
+    mask-image: conic-gradient(from -100deg, #000 var(--circle-angle), transparent 0);
+    transition: --circle-angle 0.25s ease-in;
+  }
+  &[aria-pressed="true"]::before {
+    --circle-angle: 360deg;
+    transition: --circle-angle 0.45s ease-out;
+  }
+}
+
+/* Palavra riscada à caneta. */
+@utility scratch {
+  text-decoration: line-through;
+  text-decoration-color: var(--color-red-pen);
+  text-decoration-thickness: 3px;
+}
+
+/* Foto com cara de desenho a lápis. */
+@utility pencil-photo {
+  filter: grayscale(1) contrast(1.1) brightness(1.05);
+}
+
+/* Hachura de lápis, como área de rascunho num wireframe. */
+@utility hatch {
+  background-image: repeating-linear-gradient(45deg, var(--color-smudge) 0 1px, transparent 1px 9px);
+}
+
+/* Máscara usada pela borracha: a parte transparente desliza por cima do texto. */
+@utility erase-mask {
+  mask-image: linear-gradient(90deg, transparent 45%, #000 55%);
+  mask-size: 220% 100%;
+  mask-repeat: no-repeat;
+  mask-position: 100% 0;
+}

@@ -1,0 +1,190 @@
+%-------------------------
+% Resume in LaTeX (English version)
+% Based on Jake Gutierrez's template (MIT)
+% Build: pdflatex resume-en.tex  →  copy resume-en.pdf to public/
+%-------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \scshape Isaías Altoé} \\ \vspace{1pt}
+    Alegre, Espírito Santo, Brazil \\ \vspace{1pt}
+    \small \raisebox{-0.1\height}\faPhone\ +55 (28) 99272-3833 ~
+    \href{mailto:isaiasaltoe7@gmail.com}{\raisebox{-0.2\height}\faEnvelope\ \underline{isaiasaltoe7@gmail.com}} ~
+    \href{https://www.linkedin.com/in/isaiasaltoe/}{\raisebox{-0.2\height}\faLinkedin\ \underline{linkedin.com/in/isaiasaltoe}} ~
+    \href{https://github.com/isaiasaltoe}{\raisebox{-0.2\height}\faGithub\ \underline{github.com/isaiasaltoe}} \\
+    \href{https://altoe.dev}{\raisebox{-0.2\height}\faGlobe\ \underline{altoe.dev}}
+    \vspace{-8pt}
+\end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Federal University of Espírito Santo (UFES)}{Sep 2022 -- Jun 2027}
+      {Bachelor of Science in Computer Science}{Alegre, Espírito Santo, Brazil}
+  \resumeSubHeadingListEnd
+
+%-----------COURSEWORK-----------
+\section{Relevant Coursework}
+    \begin{multicols}{3}
+        \begin{itemize}[itemsep=-5pt, parsep=3pt]
+            \item\small Data Structures
+            \item\small Agile Methodologies
+            \item\small Analysis of Algorithms
+            \item\small Databases
+            \item\small Computer Networks
+            \item\small Computer Architecture
+        \end{itemize}
+    \end{multicols}
+    \vspace*{2.0\multicolsep}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {V360}{Feb 2026 -- Present}
+      {Full Stack Development Intern}{Rio de Janeiro, Brazil (Remote)}
+      \resumeItemListStart
+        \resumeItem{Maintain and evolve an invoice management SaaS built with Ruby on Rails, ensuring the platform's stability and continuous improvement.}
+        \resumeItem{Manage and follow up on outsourced partners working on SAP integrations, ensuring quality and aligned deliveries.}
+        \resumeItem{Run technical analyses to diagnose and fix bugs, improving the platform's reliability and user experience.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Contera IO}{Aug 2025 -- Dec 2025}
+      {Full Stack Development Intern}{São Paulo, Brazil (Remote)}
+      \resumeItemListStart
+        \resumeItem{Helped implement new features and fix bugs in a Ruby on Rails application, following good programming practices.}
+        \resumeItem{Designed the UI/UX of the company's new website and contributed to its front-end using Next.js and Tailwind.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Cinética Júnior}{Jul 2025 -- Jan 2026}
+      {Full Stack Developer}{Alegre, Espírito Santo, Brazil}
+      \resumeItemListStart
+        \resumeItem{Built and maintained projects using Next.js, JavaScript, HTML, CSS, PHP, PostgreSQL and Bootstrap.}
+        \resumeItem{Worked closely with a multidisciplinary team, strengthening my teamwork and communication skills.}
+        \resumeItem{Gathered and analyzed requirements, translating client needs into practical technical solutions.}
+        \resumeItem{Interacted directly with clients, managing expectations and ensuring satisfaction.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Federal University of Espírito Santo (UFES)}{Jul 2025 -- Jan 2026}
+      {Marketing Director, Computer Science Student Association}{Alegre, Espírito Santo, Brazil}
+      \resumeItemListStart
+        \resumeItem{As marketing director, worked on user-experience-focused design, visual identity and effective communication. Applied UI/UX principles to keep layouts intuitive and visually appealing to different audiences, and used tools such as Figma and Adobe Illustrator with attention to accessibility and responsiveness across devices.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{SogeUFES} $|$ \emph{HTML, CSS, PHP, PostgreSQL}}{February 2025}
+          \resumeItemListStart
+            \resumeItem{Team-built platform that solves a real problem for UFES students: organizing study groups and finding available rooms. It lets students create groups and book rooms easily.}
+          \resumeItemListEnd
+      \vspace{-14pt}\resumeProjectHeading
+          {\textbf{Personal Portfolio} $|$ \emph{React, TypeScript, Tailwind, Docker, Linux, GitHub Actions}}{March 2026}
+          \resumeItemListStart
+            \resumeItem{Portfolio built as a showcase for my projects and a hands-on playground for new technologies. It runs on a VPS inside a Docker container, with automatic deploys through GitHub Actions.}
+          \resumeItemListEnd
+      \vspace{-14pt}\resumeProjectHeading
+          {\textbf{GManager} $|$ \emph{Ruby on Rails, Bootstrap, PostgreSQL, Docker, VPS}}{April 2026}
+          \resumeItemListStart
+            \resumeItem{Build-in-public internal back-office system for freelance development teams. It centralizes clients, projects, payments and team members in a single platform.}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%-----------SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Technologies}{: Ruby on Rails, RESTful APIs, SQL, Tailwind, Bootstrap, Docker, Linux, Git and GitHub, Figma, Postman, TDD, SAP ABAP (fundamentals)} \\
+     \textbf{Languages}{: Portuguese (native), English (fluent)} \\
+     \textbf{General skills}{: Project Management, Organization, Communication}
+    }}
+ \end{itemize}
+
+\end{document}

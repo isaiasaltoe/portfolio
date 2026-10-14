@@ -1,0 +1,18 @@
+import type { ReactNode } from 'react'
+
+type SketchButtonProps = {
+  href: string
+  children: ReactNode
+}
+
+// Botão desenhado à mão: borda tremida que "afunda" ao clicar.
+export function SketchButton({ href, children }: SketchButtonProps) {
+  return (
+    <a
+      href={href}
+      className="sketch-border inline-block rounded-md px-5 py-2 text-xl text-graphite no-underline transition-transform hover:-translate-y-0.5 hover:bg-white active:translate-y-0.5"
+    >
+      {children}
+    </a>
+  )
+}
