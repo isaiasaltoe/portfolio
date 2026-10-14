@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { IconArrowLeft, IconArrowRight } from '@tabler/icons-react'
-import { RelationalDoodle } from '../components/Doodles'
+import { GmanagerErDoodle } from '../components/Doodles'
 import { GithubActivity } from '../components/GithubActivity'
 import { MarginNote } from '../components/MarginNote'
 import { ProjectCard } from '../components/ProjectCard'
@@ -29,7 +29,7 @@ export function Projects() {
       note={
         <>
           <MarginNote>{t.projects.note}</MarginNote>
-          <RelationalDoodle className="mt-40 w-full rotate-2 opacity-80" />
+          <GmanagerErDoodle className="mt-40 w-full rotate-2 opacity-80" />
         </>
       }
     >

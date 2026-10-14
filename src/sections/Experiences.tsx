@@ -1,4 +1,4 @@
-import { InvoiceStatesDoodle } from '../components/Doodles'
+import { InviteStatesDoodle, PodChaosDoodle } from '../components/Doodles'
 import { ExperienceItem } from '../components/ExperienceItem'
 import { MarginNote } from '../components/MarginNote'
 import { Section } from '../components/Section'
@@ -15,7 +15,8 @@ export function Experiences() {
       note={
         <>
           <MarginNote tilt="right">{t.experiences.note}</MarginNote>
-          <InvoiceStatesDoodle className="mt-64 w-full -rotate-2 opacity-80" />
+          <InviteStatesDoodle className="mt-56 w-full -rotate-2 opacity-80" />
+          <PodChaosDoodle className="mt-48 w-full rotate-1 opacity-80" />
         </>
       }
     >

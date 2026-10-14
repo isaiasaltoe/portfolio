@@ -1,3 +1,4 @@
+import { HeartDoodle } from '../components/Doodles'
 import { Section } from '../components/Section'
 import { learning, technologies } from '../data/about'
 import { contacts } from '../data/contacts'
@@ -11,7 +12,7 @@ export function About() {
   const whatsappLink = `${whatsapp}?text=${encodeURIComponent(t.about.whatsappMessage)}`
 
   return (
-    <Section id="sobre" title={t.about.title}>
+    <Section id="sobre" title={t.about.title} note={<HeartDoodle className="w-28 -rotate-6" />}>
       <div className="space-y-6 text-xl">
         <p>{t.about.intro}</p>
         <p>{t.about.services}</p>

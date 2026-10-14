@@ -1,4 +1,4 @@
-import { DevFlowDoodle, GutterDoodle, MiniErDoodle } from './components/Doodles'
+import { GutterDoodle, IntegralsDoodle, LeaveTeamDoodle, WeightValidationDoodle } from './components/Doodles'
 import { Navbar } from './components/Navbar'
 import { PencilFilter } from './components/PencilFilter'
 import { Scribble } from './components/Scribble'
@@ -21,14 +21,17 @@ function App() {
       <main>
         <Hero />
         <GutterDoodle side="right" offset={-40}>
-          <MiniErDoodle />
+          <IntegralsDoodle />
         </GutterDoodle>
         <Projects />
-        <Experiences />
-        <GutterDoodle side="left" offset={60}>
-          <DevFlowDoodle />
+        <GutterDoodle side="left" offset={260}>
+          <LeaveTeamDoodle />
         </GutterDoodle>
+        <Experiences />
         <About />
+        <GutterDoodle side="left" offset={180}>
+          <WeightValidationDoodle />
+        </GutterDoodle>
         <Contact />
       </main>
       <footer className="mx-auto max-w-5xl px-6 pb-12 text-center text-pencil-light">

@@ -81,6 +81,8 @@
 
   body {
     @apply bg-paper font-body text-lg text-pencil antialiased;
+    /* rabiscos nas laterais nunca podem criar rolagem horizontal */
+    overflow-x: clip;
   }
 
   h1,

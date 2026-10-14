@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react'
 
-// Rabiscos de aula nas margens: diagramas de estado e modelos relacionais
-// desenhados "à mão". São só decoração, então ficam escondidos dos leitores de tela.
+// Rabiscos de caderno nas margens, tirados de coisas que eu uso e estudo de verdade
+// (gmanager, todolist, cardapio-SD e cálculo). São só decoração, então ficam
+// escondidos dos leitores de tela.
 
 type DoodleProps = {
   className?: string
@@ -26,175 +27,269 @@ function Sketch({ viewBox, className = '', children }: { viewBox: string; classN
 }
 
 // Texto do rabisco: preenchido, sem contorno.
-function Label({ x, y, size = 15, red, children, rotate = 0 }: {
+function Label({
+  x,
+  y,
+  size = 15,
+  red,
+  dark,
+  rotate = 0,
+  children,
+}: {
   x: number
   y: number
   size?: number
   red?: boolean
+  dark?: boolean
   rotate?: number
   children: ReactNode
 }) {
+  const fill = red ? 'var(--color-red-pen)' : dark ? 'var(--color-pencil)' : 'currentColor'
   return (
-    <text
-      x={x}
-      y={y}
-      fontSize={size}
-      stroke="none"
-      fill={red ? 'var(--color-red-pen)' : 'currentColor'}
-      transform={rotate ? `rotate(${rotate} ${x} ${y})` : undefined}
-    >
+    <text x={x} y={y} fontSize={size} stroke="none" fill={fill} transform={rotate ? `rotate(${rotate} ${x} ${y})` : undefined}>
       {children}
     </text>
   )
 }
 
-// Modelo relacional: users 1—N projects N—N techs, com a tabela pivô esquecida.
-export function RelationalDoodle({ className }: DoodleProps) {
+// Tabela desenhada à mão: caixa torta, nome em cima e os campos embaixo.
+function Table({ x, y, w, name, fields }: { x: number; y: number; w: number; name: string; fields: string[] }) {
+  const h = 22 + fields.length * 15
   return (
-    <Sketch viewBox="0 0 180 300" className={className}>
-      {/* users */}
-      <path d="M8 12 L92 9 L94 84 L10 86 Z" />
-      <path d="M10 14 L90 11" opacity={0.4} />
-      <path d="M9 32 L93 30" />
-      <Label x={16} y={27} size={16}>users</Label>
-      <Label x={16} y={50}>id (PK)</Label>
-      <Label x={16} y={66}>name</Label>
-      <Label x={16} y={81}>email</Label>
-
-      {/* projects */}
-      <path d="M78 132 L170 129 L172 218 L80 220 Z" />
-      <path d="M79 152 L171 150" />
-      <Label x={86} y={147} size={16}>projects</Label>
-      <Label x={86} y={170}>id (PK)</Label>
-      <Label x={86} y={186}>user_id</Label>
-      <Label x={86} y={202}>title</Label>
-      <Label x={86} y={216}>…</Label>
-
-      {/* 1 : N com pé de galinha */}
-      <path d="M52 86 C 50 110, 60 140, 78 160" />
-      <Label x={40} y={102} size={13}>1</Label>
-      <path d="M70 150 L80 160 M68 164 L80 160 M74 170 L80 160" />
-      <Label x={60} y={178} size={13}>N</Label>
-
-      {/* techs */}
-      <path d="M10 236 L72 234 L74 290 L12 292 Z" />
-      <path d="M11 254 L73 252" />
-      <Label x={18} y={250} size={16}>techs</Label>
-      <Label x={18} y={272}>id (PK)</Label>
-      <Label x={18} y={287}>name</Label>
-
-      {/* N : N riscado e a anotação */}
-      <path d="M80 214 C 70 226, 72 236, 74 246" strokeDasharray="4 4" />
-      <Label x={104} y={244} size={14}>N:N</Label>
-      <path d="M100 238 L134 236" stroke="var(--color-red-pen)" />
-      <Label x={98} y={266} size={15} red rotate={-4}>
-        tabela pivô!
+    <g>
+      <path d={`M${x} ${y + 1} L${x + w} ${y - 1} L${x + w + 1} ${y + h} L${x + 1} ${y + h + 1} Z`} />
+      <path d={`M${x} ${y + 20} L${x + w} ${y + 18}`} />
+      <Label x={x + 6} y={y + 15} size={15} dark>
+        {name}
       </Label>
-      <path d="M118 270 C 128 280, 112 288, 92 282 M96 276 L91 282 L98 286" stroke="var(--color-red-pen)" />
+      {fields.map((field, i) => (
+        <Label key={field} x={x + 6} y={y + 34 + i * 15} size={13}>
+          {field}
+        </Label>
+      ))}
+    </g>
+  )
+}
+
+// Seta com a pontinha no fim.
+function Arrow({ d, head, red, dashed }: { d: string; head: string; red?: boolean; dashed?: boolean }) {
+  const stroke = red ? 'var(--color-red-pen)' : undefined
+  return (
+    <g stroke={stroke}>
+      <path d={d} strokeDasharray={dashed ? '4 4' : undefined} />
+      <path d={head} />
+    </g>
+  )
+}
+
+// 1. Modelo relacional do gmanager (db/schema.rb).
+export function GmanagerErDoodle({ className }: DoodleProps) {
+  return (
+    <Sketch viewBox="0 0 185 440" className={className}>
+      <Label x={96} y={16} size={15} red rotate={-4}>
+        gmanager/db
+      </Label>
+      <path d="M94 22 C 120 18, 150 18, 172 14" stroke="var(--color-red-pen)" />
+
+      <Table x={8} y={34} w={80} name="teams" fields={['creator_id']} />
+      <Table x={100} y={96} w={80} name="users" fields={['team_id', 'email']} />
+      <Table x={8} y={138} w={80} name="clients" fields={['team_id', 'cnpj']} />
+      <Table x={4} y={252} w={92} name="projects" fields={['client_id', 'total_value']} />
+      <Table x={100} y={232} w={84} name="user_projects" fields={['user_id', 'project_id']} />
+      <Table x={58} y={356} w={100} name="installments" fields={['due_date', 'status']} />
+
+      {/* teams 1 — N users */}
+      <path d="M88 52 C 110 54, 130 70, 138 96" />
+      <path d="M131 88 L138 96 M142 86 L138 96 M137 85 L138 96" />
+      {/* teams 1 — N clients */}
+      <path d="M46 72 C 44 98, 48 118, 46 138" />
+      <path d="M40 130 L46 138 M52 130 L46 138" />
+      {/* clients 1 — N projects */}
+      <path d="M46 190 C 50 214, 46 234, 50 252" />
+      <path d="M44 244 L50 252 M56 244 L50 252" />
+      {/* users N — N projects pela tabela pivô */}
+      <path d="M140 150 C 142 182, 140 210, 142 232" />
+      <path d="M96 290 C 98 284, 98 276, 100 270" />
+      {/* projects 1 — N installments */}
+      <path d="M50 304 C 56 326, 80 340, 96 356" />
+      <path d="M86 352 L96 356 M94 346 L96 356" />
+
+      <Label x={118} y={312} size={14} red rotate={-6}>
+        unique ✓
+      </Label>
+      <Label x={18} y={432} size={15} red rotate={-3}>
+        parcelas!
+      </Label>
+      <path d="M64 426 C 70 420, 76 418, 82 418" stroke="var(--color-red-pen)" />
     </Sketch>
   )
 }
 
-// Diagrama de estados de uma nota fiscal (oi, fintech).
-export function InvoiceStatesDoodle({ className }: DoodleProps) {
+// 2. Estados do convite do gmanager (enum :status).
+export function InviteStatesDoodle({ className }: DoodleProps) {
   return (
-    <Sketch viewBox="0 0 180 280" className={className}>
-      {/* início */}
-      <circle cx={30} cy={16} r={6} fill="currentColor" />
-      <path d="M32 24 C 34 34, 34 40, 36 48 M31 42 L36 49 L41 42" />
+    <Sketch viewBox="0 0 180 240" className={className}>
+      <Label x={70} y={18} size={14} red rotate={-3}>
+        enum :status
+      </Label>
 
-      {/* draft, com laço de "editar" */}
-      <ellipse cx={42} cy={66} rx={34} ry={16} />
-      <Label x={20} y={71}>draft</Label>
-      <path d="M74 58 C 100 40, 104 80, 76 74 M80 68 L75 74 L82 78" />
-      <Label x={98} y={52} size={13}>edit</Label>
+      <circle cx={34} cy={22} r={6} fill="currentColor" />
+      <Arrow d="M36 30 C 40 42, 44 50, 50 60" head="M44 55 L50 61 L53 53" />
 
-      {/* issued */}
-      <path d="M42 84 C 44 100, 46 108, 50 120 M45 114 L50 121 L55 113" />
-      <ellipse cx={58} cy={140} rx={38} ry={17} />
-      <Label x={33} y={145}>issued</Label>
+      <ellipse cx={70} cy={82} rx={44} ry={17} />
+      <Label x={40} y={87}>pendente</Label>
 
-      {/* paid ✓ */}
-      <path d="M40 156 C 32 176, 28 190, 30 206 M25 199 L30 207 L35 199" />
-      <ellipse cx={34} cy={226} rx={30} ry={15} />
-      <ellipse cx={34} cy={226} rx={25} ry={11} opacity={0.5} />
-      <Label x={18} y={231}>paid</Label>
-      <Label x={64} y={214} size={20} red>✓</Label>
+      {/* aceito */}
+      <Arrow d="M48 98 C 36 120, 32 140, 34 158" head="M28 151 L34 159 L40 151" />
+      <Label x={6} y={132} size={12}>accept</Label>
+      <ellipse cx={42} cy={180} rx={36} ry={16} />
+      <ellipse cx={42} cy={180} rx={30} ry={11} opacity={0.5} />
+      <Label x={20} y={185}>aceito</Label>
 
-      {/* canceled */}
-      <path d="M86 152 C 108 168, 120 184, 124 204 M118 198 L124 205 L129 197" />
-      <ellipse cx={128} cy={224} rx={42} ry={15} />
-      <Label x={98} y={229}>canceled</Label>
-      <path d="M96 232 L160 216" stroke="var(--color-red-pen)" opacity={0.7} />
+      {/* recusado */}
+      <Arrow d="M96 96 C 118 116, 130 136, 134 156" head="M128 150 L134 157 L139 149" />
+      <Label x={124} y={124} size={12}>decline</Label>
+      <ellipse cx={134} cy={180} rx={42} ry={16} />
+      <Label x={104} y={185}>recusado</Label>
 
-      <Label x={70} y={268} size={14} red rotate={-3}>
-        e o estorno??
+      <Label x={8} y={226} size={14} red rotate={-2}>
+        1 time por user só!
       </Label>
     </Sketch>
   )
 }
 
-// Diagrama de estados do dia a dia de dev, com o loop eterno do bug.
-export function DevFlowDoodle({ className }: DoodleProps) {
+// 3. User#leave_team do gmanager, rabiscado.
+export function LeaveTeamDoodle({ className }: DoodleProps) {
+  const lines: [number, string][] = [
+    [0, 'def leave_team'],
+    [1, 'if id == team.creator_id'],
+    [2, 'team.destroy!'],
+    [1, 'else'],
+    [2, 'update!(team: nil)'],
+    [1, 'end'],
+    [0, 'end'],
+  ]
   return (
-    <Sketch viewBox="0 0 170 250" className={className}>
-      <circle cx={84} cy={12} r={6} fill="currentColor" />
-      <path d="M84 20 C 82 26, 84 30, 84 36 M79 30 L84 37 L89 30" />
-
-      <path d="M44 42 C 60 36, 110 36, 124 44 C 132 56, 120 66, 84 66 C 52 66, 36 58, 44 42 Z" />
-      <Label x={68} y={58}>idea</Label>
-
-      <path d="M84 66 C 86 76, 84 84, 84 92 M79 86 L84 93 L89 86" />
-      <path d="M46 96 C 62 92, 108 92, 122 98 C 130 110, 118 120, 84 120 C 54 120, 38 112, 46 96 Z" />
-      <Label x={66} y={112}>code</Label>
-
-      <path d="M84 120 C 82 130, 84 138, 84 146 M79 140 L84 147 L89 140" />
-      <path d="M44 150 C 60 146, 110 146, 124 152 C 132 164, 120 174, 84 174 C 52 174, 36 166, 44 150 Z" />
-      <Label x={62} y={167}>deploy</Label>
-
-      {/* deploy → bug → code, em vermelho */}
-      <path
-        d="M126 160 C 160 156, 162 112, 126 106 M132 100 L125 106 L133 112"
-        stroke="var(--color-red-pen)"
-      />
-      <Label x={140} y={138} size={15} red>bug</Label>
-
-      {/* fim (quem dera) */}
-      <path d="M84 174 C 86 186, 84 194, 84 202 M79 196 L84 203 L89 196" strokeDasharray="3 4" />
-      <circle cx={84} cy={214} r={8} />
-      <circle cx={84} cy={214} r={4} fill="currentColor" />
-      <Label x={100} y={236} size={14} red rotate={-4}>
-        quem dera
+    <Sketch viewBox="0 0 190 200" className={className}>
+      <Label x={8} y={16} size={13} red>
+        user.rb
       </Label>
-      <path d="M98 230 C 94 226, 92 222, 92 220" stroke="var(--color-red-pen)" />
+      {lines.map(([indent, code], i) => (
+        <Label key={i} x={10 + indent * 14} y={40 + i * 19} size={15} dark={indent === 0}>
+          {code}
+        </Label>
+      ))}
+      {/* sublinhado e recado no destroy! */}
+      <path d="M38 81 C 60 83, 80 81, 104 82" stroke="var(--color-red-pen)" />
+      <Arrow d="M110 84 C 130 100, 140 150, 128 172" head="M122 166 L128 173 L133 165" red />
+      <Label x={60} y={192} size={14} red rotate={-3}>
+        admin saiu = time some
+      </Label>
     </Sketch>
   )
 }
 
-// Mini modelo: clients 1—N invoices, com um "índice?" anotado.
-export function MiniErDoodle({ className }: DoodleProps) {
+// 4. Validação do todolist, com a refatoração anotada em vermelho.
+export function WeightValidationDoodle({ className }: DoodleProps) {
+  const lines: [number, string][] = [
+    [0, 'validate :between_one_and_five'],
+    [0, 'def between_one_and_five'],
+    [1, 'return if weight.nil?'],
+    [1, 'if weight < 1 || weight > 5'],
+    [2, 'errors.add(:weight, ...)'],
+    [1, 'end'],
+    [0, 'end'],
+  ]
   return (
-    <Sketch viewBox="0 0 170 200" className={className}>
-      <path d="M10 10 L84 8 L86 66 L12 68 Z" />
-      <path d="M11 28 L85 26" />
-      <Label x={18} y={24} size={16}>clients</Label>
-      <Label x={18} y={46}>id (PK)</Label>
-      <Label x={18} y={62}>cnpj</Label>
-
-      <path d="M70 110 L160 107 L162 186 L72 188 Z" />
-      <path d="M71 128 L161 126" />
-      <Label x={78} y={124} size={16}>invoices</Label>
-      <Label x={78} y={146}>client_id</Label>
-      <Label x={78} y={162}>amount</Label>
-      <Label x={78} y={178}>status</Label>
-
-      <path d="M48 68 C 46 92, 54 110, 70 140" />
-      <path d="M60 134 L70 140 M58 146 L70 140 M66 150 L70 140" />
-
-      <path d="M66 146 C 54 150, 48 160, 40 168" stroke="var(--color-red-pen)" />
-      <Label x={4} y={186} size={15} red rotate={-6}>
-        índice?
+    <Sketch viewBox="0 0 200 210" className={className}>
+      <Label x={8} y={16} size={13} red>
+        task.rb
       </Label>
+      {lines.map(([indent, code], i) => (
+        <Label key={i} x={8 + indent * 14} y={38 + i * 19} size={14} dark={indent === 0}>
+          {code}
+        </Label>
+      ))}
+      {/* risca a condição e sugere o between? */}
+      <path d="M36 91 C 80 88, 130 92, 186 89" stroke="var(--color-red-pen)" />
+      <Arrow d="M150 96 C 168 130, 160 168, 140 182" head="M146 176 L139 183 L148 186" red />
+      <Label x={10} y={198} size={14} red rotate={-2}>
+        unless weight.between?(1, 5)
+      </Label>
+    </Sketch>
+  )
+}
+
+// 5. Ciclo de vida de um pod sob o Chaos Mesh (cardapio-SD).
+export function PodChaosDoodle({ className }: DoodleProps) {
+  return (
+    <Sketch viewBox="0 0 180 230" className={className}>
+      <Label x={8} y={18} size={14} red rotate={-3}>
+        chaos mesh vs k8s
+      </Label>
+
+      <ellipse cx={90} cy={50} rx={40} ry={16} />
+      <Label x={66} y={55}>Running</Label>
+
+      {/* pod-kill */}
+      <Arrow d="M128 58 C 152 70, 160 96, 154 118" head="M148 111 L154 119 L160 111" red />
+      <Label x={140} y={88} size={13} red>
+        pod-kill
+      </Label>
+
+      <ellipse cx={128} cy={140} rx={46} ry={16} />
+      <Label x={96} y={145}>Terminated</Label>
+
+      <Arrow d="M110 156 C 104 172, 96 180, 84 186" head="M90 180 L83 187 L92 190" />
+      <Label x={110} y={182} size={12}>recria</Label>
+
+      <ellipse cx={58} cy={198} rx={40} ry={16} />
+      <Label x={36} y={203}>Pending</Label>
+
+      <Arrow d="M24 188 C 8 150, 14 90, 50 60" head="M41 61 L50 60 L48 69" />
+      <Label x={2} y={130} size={12}>ready</Label>
+
+      <Label x={84} y={226} size={13} red rotate={-2}>
+        minReplicas: 3
+      </Label>
+    </Sketch>
+  )
+}
+
+// 6. Integrais simples de Cálculo.
+export function IntegralsDoodle({ className }: DoodleProps) {
+  return (
+    <Sketch viewBox="0 0 180 210" className={className}>
+      {/* ∫₀¹ x² dx = x³/3 |₀¹ = 1/3 */}
+      <Label x={6} y={44} size={34} dark>∫</Label>
+      <Label x={22} y={20} size={11}>1</Label>
+      <Label x={20} y={50} size={11}>0</Label>
+      <Label x={30} y={38} size={17}>x² dx =</Label>
+      <Label x={96} y={30} size={15}>x³</Label>
+      <path d="M94 34 L114 33" />
+      <Label x={100} y={48} size={15}>3</Label>
+      <path d="M120 20 L120 50" />
+      <Label x={123} y={22} size={10}>1</Label>
+      <Label x={123} y={52} size={10}>0</Label>
+      <Label x={134} y={40} size={17}>= ⅓</Label>
+      <ellipse cx={160} cy={35} rx={14} ry={13} stroke="var(--color-red-pen)" />
+
+      {/* ∫ eˣ dx */}
+      <Label x={6} y={102} size={30} dark>∫</Label>
+      <Label x={24} y={96} size={17}>eˣ dx = eˣ + C</Label>
+
+      {/* ∫ 1/x dx */}
+      <Label x={6} y={152} size={30} dark>∫</Label>
+      <Label x={26} y={138} size={14}>1</Label>
+      <path d="M24 142 L36 141" />
+      <Label x={26} y={155} size={14}>x</Label>
+      <Label x={42} y={146} size={17}>dx = ln|x| + C</Label>
+
+      <Label x={70} y={192} size={18} red rotate={-6}>
+        não esquece o +C!
+      </Label>
+      <Arrow d="M150 180 C 160 170, 162 160, 158 154" head="M153 160 L158 153 L163 160" red />
     </Sketch>
   )
 }
@@ -205,11 +300,26 @@ export function GutterDoodle({ side, offset = 0, children }: { side: 'left' | 'r
   return (
     <div aria-hidden="true" className="pointer-events-none relative mx-auto hidden h-0 max-w-5xl min-[1400px]:block">
       <div
-        className={`absolute w-[150px] opacity-70 ${side === 'left' ? 'right-full mr-6 -rotate-3' : 'left-full ml-6 rotate-2'}`}
+        className={`absolute w-[170px] opacity-75 ${side === 'left' ? 'right-full mr-3 -rotate-2' : 'left-full ml-3 rotate-2'}`}
         style={{ top: offset }}
       >
         {children}
       </div>
     </div>
+  )
+}
+
+// Coração de caneta vermelha com as iniciais, como em capa de caderno.
+export function HeartDoodle({ className }: DoodleProps) {
+  return (
+    <Sketch viewBox="0 0 120 110" className={className}>
+      <g stroke="var(--color-red-pen)" strokeWidth={2}>
+        <path d="M60 98 C 30 76, 8 58, 10 34 C 12 14, 38 6, 52 22 C 56 26, 58 30, 60 34 C 62 28, 68 18, 80 14 C 100 10, 114 24, 110 44 C 106 64, 84 80, 60 98 Z" />
+        <path d="M58 92 C 34 74, 14 56, 16 36" opacity={0.5} />
+      </g>
+      <Label x={33} y={62} size={30} red>
+        I + L
+      </Label>
+    </Sketch>
   )
 }
