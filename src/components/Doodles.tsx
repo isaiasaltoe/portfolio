@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import { useState, type ReactNode } from 'react'
 
 // Rabiscos de caderno nas margens, tirados de coisas que eu uso e estudo de verdade
 // (gmanager, todolist e cálculo). São só decoração, então ficam
@@ -258,14 +258,38 @@ export function IntegralsDoodle({ className }: DoodleProps) {
   )
 }
 
+// Número sorteado entre min e max.
+function between(min: number, max: number) {
+  return min + Math.random() * (max - min)
+}
+
 // Rabisco solto na lateral da página, fora da coluna de conteúdo.
-// Só aparece em telas largas, onde a margem cabe o desenho sem criar rolagem.
-export function GutterDoodle({ side, offset = 0, children }: { side: 'left' | 'right'; offset?: number; children: ReactNode }) {
+// A cada visita o lado, a altura e a inclinação são sorteados, para parecer
+// anotação feita na hora e não um layout montado. O sorteio fica no
+// inicializador do useState, então roda só uma vez e não "pula" a cada render.
+//
+// A largura acompanha o espaço livre na margem: (100vw - 1024px) / 2 é o que
+// sobra de cada lado da coluna max-w-5xl. Assim o desenho cabe em notebooks
+// (ex.: MacBook com 1280–1512px de largura útil) em vez de só em monitores grandes.
+export function GutterDoodle({ side, offset = 0, children }: { side?: 'left' | 'right'; offset?: number; children: ReactNode }) {
+  const [layout] = useState(() => ({
+    side: side ?? (Math.random() < 0.5 ? 'left' : 'right'),
+    top: offset + between(-70, 70),
+    rotate: between(-6, 6),
+    // entra um pouco no padding da coluna (px-6 = 24px), nunca além da tela
+    inset: between(-14, -4),
+  }))
+
   return (
-    <div aria-hidden="true" className="pointer-events-none relative mx-auto hidden h-0 max-w-5xl min-[1400px]:block">
+    <div aria-hidden="true" className="pointer-events-none relative mx-auto hidden h-0 max-w-5xl min-[1240px]:block">
       <div
-        className={`absolute w-[170px] opacity-75 ${side === 'left' ? 'right-full mr-3 -rotate-2' : 'left-full ml-3 rotate-2'}`}
-        style={{ top: offset }}
+        className={`absolute opacity-75 ${layout.side === 'left' ? 'right-full' : 'left-full'}`}
+        style={{
+          top: layout.top,
+          width: 'clamp(104px, calc(50vw - 520px), 190px)',
+          [layout.side === 'left' ? 'marginRight' : 'marginLeft']: layout.inset,
+          transform: `rotate(${layout.rotate}deg)`,
+        }}
       >
         {children}
       </div>
