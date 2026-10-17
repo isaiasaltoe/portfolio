@@ -24,6 +24,7 @@ export function Navbar() {
   }, [])
 
   const links = [
+    { href: '#servicos', label: t.nav.services },
     { href: '#projetos', label: t.nav.projects },
     { href: '#experiencias', label: t.nav.experiences },
     { href: '#sobre', label: t.nav.about },

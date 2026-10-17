@@ -1,8 +1,9 @@
 const pt = {
   meta: {
-    description: 'Portfólio de Isaías Altoé, desenvolvedor Full Stack e estudante de Ciência da Computação na UFES.',
+    description: 'Crio sites, sistemas sob medida e automações para pequenas empresas. Me chama no WhatsApp e peça um orçamento sem compromisso.',
   },
   nav: {
+    services: 'Serviços',
     projects: 'Projetos',
     experiences: 'Experiências',
     about: 'Sobre mim',
@@ -17,19 +18,28 @@ const pt = {
   },
   hero: {
     phrases: [
-      'Estudante de Ciência da Computação na UFES',
       'Desenvolvedor Full Stack',
+      'Estudante de Ciência da Computação na UFES',
       'Eterno estudante',
       'Com conhecimentos em SAP ABAP',
       'Experiência em fintechs',
       'Dev com mentalidade de produto',
     ],
-    bioBefore: 'Sou estudante de Ciência da Computação na UFES e desenvolvedor Full Stack na',
-    bioAfter: '. Gosto de solucionar (e às vezes criar) problemas.',
-    cta: 'ver projetos →',
+    bio: 'Presto serviços diversos de tecnologia para pequenas e médias empresas, de sites comerciais a sistemas web completos, de ponta a ponta: do desenho da interface ao deploy. Sou desenvolvedor Full Stack e curso Ciência da Computação na UFES.',
+    cta: 'ver serviços →',
+    projectsLink: 'ou dá uma olhada nos meus projetos',
     ctaNote: '← clica aqui!',
     photoAlt: 'Desenho do rosto do Isaías, de cabelo cacheado e óculos, em traço de marcador',
     photoNote: 'esse sou eu, oi!',
+  },
+  services: {
+    title: 'Serviços',
+    previous: 'Página anterior',
+    next: 'Próxima página',
+    idealFor: 'Ideal para:',
+    cta: 'Vamos conversar?',
+    ctaNote: 'me conta o que você precisa e eu te passo um orçamento sob medida!',
+    whatsappMessage: 'Olá, Isaías! Vi seu site e gostaria de conversar sobre um projeto.',
   },
   projects: {
     title: 'Projetos',
@@ -57,13 +67,12 @@ const pt = {
   },
   about: {
     title: 'Sobre mim',
-    intro: 'Sou desenvolvedor Full Stack e gosto de transformar problemas reais em software que funciona.',
-    services:
-      'Presto serviços diversos de tecnologia, de sites comerciais a sistemas web completos, de ponta a ponta: do desenho da interface ao deploy.',
-    contactBefore: 'Tem uma ideia ou um problema pra resolver? Eu adoraria ouvir o que você tem a dizer. É só',
-    contactLink: 'me mandar uma mensagem',
-    contactAfter: '!',
-    whatsappMessage: 'Oi Isaías, tudo bem? Eu tenho uma ideia e queria conversar sobre ela.',
+    // {age} é trocado pela idade atual
+    intro:
+      'Sou natural de Vargem Alta, tenho {age} anos e estou concluindo a graduação em Ciência da Computação na UFES.',
+    growth:
+      'Desde a minha passagem pela Cinética Jr, empresa júnior da minha faculdade, em julho de 2025, venho evoluindo constantemente minhas habilidades: técnicas, de comunicação, de entendimento de produto e afins.',
+    now: 'Ultimamente, venho equilibrando a vida entre concluir o TCC, continuar entregando a todo vapor no trabalho e aprofundar ainda mais meus conhecimentos, seja em estudos formais, como cursos, livros e aulas, ou em projetos práticos que ajudam pessoas de verdade.',
     techTitle: 'Minhas principais tecnologias',
     learning: '← aprendendo',
   },
@@ -85,9 +94,10 @@ const pt = {
 // `typeof pt` obriga o inglês a ter exatamente as mesmas chaves do português.
 const en: typeof pt = {
   meta: {
-    description: "Isaías Altoé's portfolio, Full Stack developer and Computer Science student at UFES.",
+    description: 'I build websites, custom systems and automations for small businesses. Message me on WhatsApp for a free quote.',
   },
   nav: {
+    services: 'Services',
     projects: 'Projects',
     experiences: 'Experience',
     about: 'About me',
@@ -102,19 +112,28 @@ const en: typeof pt = {
   },
   hero: {
     phrases: [
-      'Computer Science Student at UFES',
       'Full Stack Developer',
+      'Computer Science Student at UFES',
       'Forever a student',
       'Knowledge of SAP ABAP',
       'Fintech experience',
       'Product-minded developer',
     ],
-    bioBefore: "I'm a Computer Science student at UFES and a Full Stack Developer at",
-    bioAfter: '. I like solving (and sometimes creating) problems.',
-    cta: 'see projects →',
+    bio: "I offer a wide range of tech services for small and medium-sized businesses, from business websites to complete web systems, end to end: from interface design to deploy. I'm a Full Stack developer and I study Computer Science at UFES.",
+    cta: 'see services →',
+    projectsLink: 'or take a look at my projects',
     ctaNote: '← click here!',
     photoAlt: 'Marker doodle of Isaías, with curly hair and glasses',
     photoNote: "that's me, hi!",
+  },
+  services: {
+    title: 'Services',
+    previous: 'Previous page',
+    next: 'Next page',
+    idealFor: 'Great for:',
+    cta: "Let's talk?",
+    ctaNote: "tell me what you need and I'll send you a tailored quote!",
+    whatsappMessage: "Hi Isaías! I saw your website and I'd like to talk about a project.",
   },
   projects: {
     title: 'Projects',
@@ -142,13 +161,11 @@ const en: typeof pt = {
   },
   about: {
     title: 'About me',
-    intro: "I'm a Full Stack developer who enjoys turning real problems into software that works.",
-    services:
-      'I offer a wide range of tech services, from business websites to complete web systems, end to end: from interface design to deploy.',
-    contactBefore: "Got an idea or a problem to solve? I'd love to hear what you have to say. Just",
-    contactLink: 'send me a message',
-    contactAfter: '!',
-    whatsappMessage: "Hi Isaías, how are you? I have an idea and I'd like to talk about it.",
+    intro:
+      "I'm from Vargem Alta, I'm {age} years old and I'm finishing my Computer Science degree at UFES.",
+    growth:
+      "Since my time at Cinética Jr, my university's junior enterprise, starting in July 2025, I've been constantly growing my skills: technical, communication, product understanding and more.",
+    now: "Lately, I've been balancing finishing my thesis, delivering at full speed at work and deepening my knowledge even further, whether through formal study, like courses, books and classes, or through hands-on projects that genuinely help people.",
     techTitle: 'My main technologies',
     learning: '← learning',
   },

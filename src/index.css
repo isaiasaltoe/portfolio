@@ -193,3 +193,12 @@
   mask-repeat: no-repeat;
   mask-position: 100% 0;
 }
+
+/* Borda serrilhada de selo postal: furinhos em toda a volta, miolo inteiro.
+   O padding define a faixa dos furos; o content-box tapa os furos do meio. */
+@utility perforated {
+  padding: 7px;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    radial-gradient(circle 4px, #0000 97%, #000) -6px -6px / 12px 12px round;
+}

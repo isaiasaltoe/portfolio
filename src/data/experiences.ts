@@ -1,3 +1,7 @@
+import cinetica from '../assets/logos/cinetica.png'
+import contera from '../assets/logos/contera.jpg'
+import ufes from '../assets/logos/ufes.png'
+import v360 from '../assets/logos/v360.jpg'
 import type { Localized } from '../i18n/translations'
 
 export type Experience = {
@@ -6,6 +10,8 @@ export type Experience = {
   period: Localized
   current?: boolean
   items: Localized<string[]>
+  // logo do selo; onDark = logo branco, feito pra fundo escuro
+  logo: { src: string; onDark?: boolean }
 }
 
 const fullStack: Localized = { pt: 'Desenvolvedor Full Stack', en: 'Full Stack Developer' }
@@ -14,6 +20,7 @@ export const experiences: Experience[] = [
   {
     title: fullStack,
     company: 'V360',
+    logo: { src: v360 },
     period: { pt: 'Fev 2026 – Atual', en: 'Feb 2026 – Present' },
     current: true,
     items: {
@@ -32,6 +39,7 @@ export const experiences: Experience[] = [
   {
     title: fullStack,
     company: 'Contera IO',
+    logo: { src: contera },
     period: { pt: 'Ago 2025 – Dez 2025', en: 'Aug 2025 – Dec 2025' },
     items: {
       pt: [
@@ -47,6 +55,7 @@ export const experiences: Experience[] = [
   {
     title: fullStack,
     company: 'Cinética Jr',
+    logo: { src: cinetica, onDark: true },
     period: { pt: 'Jul 2025 – Fev 2026', en: 'Jul 2025 – Feb 2026' },
     items: {
       pt: [
@@ -66,6 +75,7 @@ export const experiences: Experience[] = [
   {
     title: { pt: 'Diretor de Marketing', en: 'Marketing Director' },
     company: 'CACCOMP UFES',
+    logo: { src: ufes },
     period: { pt: 'Jul 2024 – Dez 2025', en: 'Jul 2024 – Dec 2025' },
     items: {
       pt: [
@@ -79,6 +89,7 @@ export const experiences: Experience[] = [
   {
     title: { pt: 'Ciência da Computação', en: 'Computer Science' },
     company: 'UFES',
+    logo: { src: ufes },
     period: { pt: 'Out 2022 – Atual', en: 'Oct 2022 – Present' },
     current: true,
     items: {

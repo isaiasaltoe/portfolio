@@ -12,7 +12,8 @@ type SectionProps = {
 export function Section({ id, title, note, children }: SectionProps) {
   return (
     <section id={id} className="mx-auto grid max-w-5xl scroll-mt-24 gap-10 px-6 py-20 md:grid-cols-[1fr_180px]">
-      <div>
+      {/* min-w-0: conteúdo largo (como o carrossel de projetos) não alarga a coluna além da tela */}
+      <div className="min-w-0">
         <h2 className="text-4xl">{title}</h2>
         <Scribble className="mt-1 w-40 text-pencil-light" />
         <div className="mt-10">{children}</div>

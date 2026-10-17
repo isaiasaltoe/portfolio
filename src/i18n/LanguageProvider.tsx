@@ -11,7 +11,7 @@ function getInitialLanguage(): Language {
   } catch {
     // localStorage pode estar bloqueado (aba anônima, por exemplo)
   }
-  return navigator.language.startsWith('pt') ? 'pt' : 'en'
+  return 'pt'
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {

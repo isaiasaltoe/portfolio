@@ -151,7 +151,7 @@ export function Notebook() {
 
   return (
     // No desktop a caderneta avança sobre a coluna de margem da seção (vazia no Contato).
-    <div className="relative mx-auto w-full max-w-[340px] md:mr-[-220px] md:ml-auto">
+    <div className="relative mx-auto w-full max-w-[340px] lg:mr-[-220px] lg:ml-auto">
       <p className="absolute -top-9 right-2 rotate-3 font-note text-xl text-red-pen">{t.contact.notebookNote}</p>
 
       <div className="sketch-border relative rotate-[0.8deg] rounded-sm bg-white text-pencil shadow-[3px_4px_0_var(--color-smudge)]">

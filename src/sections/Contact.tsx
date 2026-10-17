@@ -25,7 +25,7 @@ export function Contact() {
   return (
     <Section id="contato" title={t.contact.title}>
       {/* contatos à esquerda, caderneta para rabiscar à direita */}
-      <div className="grid items-start gap-16 md:grid-cols-[auto_1fr] md:gap-12">
+      <div className="grid items-start gap-16 lg:grid-cols-[auto_1fr] lg:gap-12">
         <div>
           <p className="text-xl">{t.contact.intro}</p>
           <ul className="mt-8 space-y-4">

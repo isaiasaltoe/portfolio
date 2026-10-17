@@ -1,4 +1,4 @@
-import portrait from '../assets/eu-desenho.svg'
+import portrait from '../assets/eu-desenho.png'
 import { EraserPhrases } from '../components/EraserPhrases'
 import { SketchButton } from '../components/SketchButton'
 import { useLanguage } from '../i18n/useLanguage'
@@ -15,18 +15,16 @@ export function Hero() {
           <EraserPhrases phrases={t.hero.phrases} />
         </p>
 
-        <p className="mt-8 max-w-2xl text-xl">
-          {t.hero.bioBefore}{' '}
-          <a href="https://v360.io/" target="_blank" rel="noopener noreferrer">
-            V360
-          </a>
-          {t.hero.bioAfter}
-        </p>
+        <p className="mt-8 max-w-2xl text-xl">{t.hero.bio}</p>
 
+        {/* Cliente primeiro: o botão leva aos serviços; os projetos ficam num link logo abaixo. */}
         <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
-          <SketchButton href="#projetos">{t.hero.cta}</SketchButton>
+          <SketchButton href="#servicos">{t.hero.cta}</SketchButton>
           <span className="-rotate-6 font-note text-2xl text-red-pen">{t.hero.ctaNote}</span>
         </div>
+        <a href="#projetos" className="mt-5 inline-block text-lg text-pencil-light">
+          {t.hero.projectsLink}
+        </a>
       </div>
 
       {/* Autorretrato desenhado a lápis, solto no papel */}

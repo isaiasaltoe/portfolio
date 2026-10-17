@@ -1,27 +1,28 @@
 import { HeartDoodle } from '../components/Doodles'
 import { Section } from '../components/Section'
 import { learning, technologies } from '../data/about'
-import { contacts } from '../data/contacts'
 import { useLanguage } from '../i18n/useLanguage'
 
-// Link do WhatsApp com uma mensagem já escrita, pra facilitar o primeiro contato.
-const whatsapp = contacts.find((contact) => contact.kind === 'whatsapp')?.href as string
+// Idade calculada pela data de nascimento, pra não ficar desatualizada.
+const BIRTHDAY = new Date(2004, 1, 6)
+
+function age() {
+  const today = new Date()
+  const hadBirthday =
+    today.getMonth() > BIRTHDAY.getMonth() ||
+    (today.getMonth() === BIRTHDAY.getMonth() && today.getDate() >= BIRTHDAY.getDate())
+  return today.getFullYear() - BIRTHDAY.getFullYear() - (hadBirthday ? 0 : 1)
+}
 
 export function About() {
   const { t } = useLanguage()
-  const whatsappLink = `${whatsapp}?text=${encodeURIComponent(t.about.whatsappMessage)}`
 
   return (
     <Section id="sobre" title={t.about.title} note={<HeartDoodle className="w-28 -rotate-6" />}>
       <div className="space-y-6 text-xl">
-        <p>{t.about.intro}</p>
-        <p>{t.about.services}</p>
-        <p>
-          {t.about.contactBefore} <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-            {t.about.contactLink}
-          </a>
-          {t.about.contactAfter}
-        </p>
+        <p>{t.about.intro.replace('{age}', String(age()))}</p>
+        <p>{t.about.growth}</p>
+        <p>{t.about.now}</p>
       </div>
 
       <div className="sketch-border mt-10 rounded-sm p-6 text-pencil">
