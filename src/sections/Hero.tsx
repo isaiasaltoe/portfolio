@@ -15,7 +15,8 @@ export function Hero() {
           <EraserPhrases phrases={t.hero.phrases} />
         </p>
 
-        <p className="mt-8 max-w-2xl text-xl">{t.hero.bio}</p>
+        {/* pre-line: respeita a quebra de linha (\n) do texto */}
+        <p className="mt-8 max-w-2xl text-xl whitespace-pre-line">{t.hero.bio}</p>
 
         {/* Cliente primeiro: o botão leva aos serviços; os projetos ficam num link logo abaixo. */}
         <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">

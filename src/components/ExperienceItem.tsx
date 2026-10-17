@@ -38,8 +38,7 @@ export function ExperienceItem({ index, title, company, period, current, items, 
 
         {/* selo no canto de cima, meio pra fora da ficha (a fita fica sempre do lado esquerdo) */}
         <Stamp
-          logo={logo.src}
-          logoOnDark={logo.onDark}
+          logo={logo}
           className="pointer-events-none absolute -top-6 -right-3 w-20 md:-right-6 md:w-24"
           style={{ rotate: stampTilts[index % stampTilts.length] }}
         />

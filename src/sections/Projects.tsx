@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { IconArrowLeft, IconArrowRight } from '@tabler/icons-react'
 import { GmanagerErDoodle } from '../components/Doodles'
 import { GithubActivity } from '../components/GithubActivity'
@@ -12,6 +12,16 @@ export function Projects() {
   const { t } = useLanguage()
   // Referência para a faixa que rola, usada pelos botões de seta.
   const scroller = useRef<HTMLDivElement>(null)
+  // Se todos os cards cabem (no desktop cabem dois), as setas não têm o que rolar e somem.
+  const [overflows, setOverflows] = useState(true)
+
+  useEffect(() => {
+    const element = scroller.current
+    if (!element) return
+    const observer = new ResizeObserver(() => setOverflows(element.scrollWidth > element.clientWidth + 1))
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [])
 
   function scroll(direction: 1 | -1) {
     const element = scroller.current
@@ -28,13 +38,18 @@ export function Projects() {
       title={t.projects.title}
       note={
         <>
-          <MarginNote>{t.projects.note}</MarginNote>
-          <GmanagerErDoodle className="mt-40 w-full rotate-2 opacity-80" />
+          {/* a anotação sobe pra altura do título, porque o carrossel ocupa esta coluna no desktop */}
+          <div className="-mt-20">
+            <MarginNote>{t.projects.note}</MarginNote>
+          </div>
+          {/* o diagrama fica do lado do bloco do GitHub, abaixo do carrossel */}
+          <GmanagerErDoodle className="mt-[38rem] w-full rotate-2 opacity-80" />
         </>
       }
     >
-      {/* Projetos lado a lado, rolando na horizontal e "encaixando" em cada card */}
-      <div ref={scroller} className="flex snap-x snap-mandatory gap-10 overflow-x-auto px-2 pt-3 pb-6">
+      {/* Projetos lado a lado, rolando na horizontal e "encaixando" em cada card.
+          No desktop a faixa avança sobre a coluna de margem, pra caber dois cards inteiros. */}
+      <div ref={scroller} className="flex snap-x snap-mandatory gap-10 overflow-x-auto px-2 pt-3 pb-6 lg:mr-[-220px]">
         {projects.map((project, i) => (
           <div key={project.title} className="w-[85%] shrink-0 snap-start sm:w-[420px]">
             <ProjectCard index={i} {...project} />
@@ -42,7 +57,7 @@ export function Projects() {
         ))}
       </div>
 
-      <div className="mt-4 flex items-center gap-3">
+      <div className={`mt-4 flex items-center gap-3 ${overflows ? '' : 'hidden'}`}>
         <button type="button" onClick={() => scroll(-1)} aria-label={t.projects.previous} className={arrowClass}>
           <IconArrowLeft size={20} stroke={1.5} />
         </button>
