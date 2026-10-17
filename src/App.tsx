@@ -22,16 +22,16 @@ function App() {
       <main>
         <Hero />
         <Services />
-        <GutterDoodle side="right" offset={-40}>
+        <GutterDoodle offset={-20}>
           <IntegralsDoodle />
         </GutterDoodle>
         <Projects />
-        <GutterDoodle side="left" offset={260}>
+        <GutterDoodle offset={260}>
           <LeaveTeamDoodle />
         </GutterDoodle>
         <Experiences />
         <About />
-        <GutterDoodle side="left" offset={180}>
+        <GutterDoodle offset={180}>
           <WeightValidationDoodle />
         </GutterDoodle>
         <Contact />
