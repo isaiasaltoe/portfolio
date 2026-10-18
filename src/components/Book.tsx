@@ -59,9 +59,8 @@ function OpenBook({ pages, previousLabel, nextLabel, spread }: BookProps & { spr
           <div className="relative aspect-[4/5]">
             <PageSizer pages={pages} />
             <SheetStack side="right" />
-            <div
-              className={`absolute inset-0 [perspective:2000px] [perspective-origin:left_center] ${spread ? '' : 'overflow-hidden'}`}
-            >
+            {/* Sem overflow-hidden: no Safari (iPhone), recortar um filho girando em 3D quebra a animação. */}
+            <div className="absolute inset-0 [perspective:2000px] [perspective-origin:left_center]">
               <div className="absolute inset-0">
                 <Page side="right">{right}</Page>
               </div>
@@ -70,17 +69,22 @@ function OpenBook({ pages, previousLabel, nextLabel, spread }: BookProps & { spr
                 const isFlipped = i < flipped
                 // Folhas ainda não viradas ficam acima de todas as viradas; entre as viradas, a última por cima.
                 // O z-index só troca no meio da virada (transition-delay), quando a folha está de lado.
-                const zIndex = isFlipped ? i + 1 : leaves.length * 2 - i
+                // No celular o verso é branco, então a folha só gira até ficar de lado (-90°) e some,
+                // sem precisar de recorte para esconder a parte que passaria da lombada. De lado ela
+                // não ocupa espaço, então pode continuar por cima: assim não some atrás da próxima no meio do giro.
+                const zIndex = isFlipped && spread ? i + 1 : leaves.length * 2 - i
+                // rotateY(0deg) em vez de 'none' garante que todo navegador anime pelo ângulo.
+                const angle = isFlipped ? (spread ? -180 : -90) : 0
                 return (
                   <div
                     key={i}
                     className="absolute inset-0 origin-left transition-[transform,z-index] [transition-delay:0ms,350ms] duration-700 ease-in-out [transform-style:preserve-3d] motion-reduce:transition-none"
-                    style={{ transform: isFlipped ? 'rotateY(-180deg)' : 'none', zIndex }}
+                    style={{ transform: `rotateY(${angle}deg)`, zIndex }}
                   >
-                    <div className="absolute inset-0 [backface-visibility:hidden]" inert={isFlipped}>
+                    <div className="absolute inset-0 [-webkit-backface-visibility:hidden] [backface-visibility:hidden]" inert={isFlipped}>
                       <Page side="right">{leaf.front}</Page>
                     </div>
-                    <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)]" inert={!isFlipped}>
+                    <div className="absolute inset-0 [-webkit-backface-visibility:hidden] [backface-visibility:hidden] [transform:rotateY(180deg)]" inert={!isFlipped}>
                       <Page side={spread ? 'left' : 'right'}>{leaf.back}</Page>
                     </div>
                   </div>
