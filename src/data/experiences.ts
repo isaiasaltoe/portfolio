@@ -25,14 +25,18 @@ export const experiences: Experience[] = [
     current: true,
     items: {
       pt: [
-        'Manutenção e evolução de um SaaS de gestão de notas fiscais em Ruby on Rails, garantindo estabilidade e melhoria contínua da plataforma.',
-        'Gestão e acompanhamento dos serviços de colaboradores terceirizados em integrações SAP, assegurando qualidade e alinhamento das entregas.',
-        'Análises técnicas para diagnóstico e resolução de bugs, contribuindo para a confiabilidade e a experiência do usuário.',
+        'Integro o time de sustentação de uma plataforma SaaS de gestão fiscal, em contato diário com os clientes, tratando e documentando chamados técnicos com SLAs curtos e incidentes críticos de produção em algumas das maiores empresas do Brasil.',
+        'Desenvolvo e mantenho integrações via APIs RESTful ativas e passivas entre a plataforma e o ERP SAP, com implementação no backend em Ruby on Rails e no SAP em ABAP, escrevendo testes automatizados com Minitest.',
+        'Eliminamos 100% dos custos com terceirizados na manutenção do SAP ao internalizar no time a sustentação e a evolução das integrações em ABAP.',
+        'Monitoro jobs assíncronos no Sidekiq e Redis e analiso dados de produção com consultas SQL no PostgreSQL, corrigindo os bugs encontrados e garantindo a estabilidade da plataforma.',
+        'Desenvolvo e mantenho agentes, plugins e skills de IA para triagem de chamados e análise de logs, acelerando a resolução de chamados, e documento os ajustes aplicados quando os agentes erram.',
       ],
       en: [
-        'Maintaining and evolving an invoice management SaaS built with Ruby on Rails, keeping the platform stable and continuously improving.',
-        'Managing and following up on outsourced partners working on SAP integrations, ensuring quality and aligned deliveries.',
-        'Running technical analyses to diagnose and fix bugs, improving reliability and user experience.',
+        "Member of the production support team for a tax management SaaS platform, in daily contact with clients, handling and documenting technical tickets with tight SLAs and critical production incidents at some of Brazil's largest companies.",
+        'Build and maintain inbound and outbound RESTful API integrations between the platform and SAP ERP, implementing the Ruby on Rails backend and the SAP side in ABAP, and writing automated tests with Minitest.',
+        'Our team eliminated 100% of outsourced SAP maintenance costs by bringing the support and evolution of the ABAP integrations in-house.',
+        'Monitor asynchronous jobs in Sidekiq and Redis and analyze production data with SQL queries in PostgreSQL, fixing the bugs found and keeping the platform stable.',
+        'Build and maintain AI agents, plugins and skills for ticket triage and log analysis, speeding up ticket resolution, and document the adjustments applied when the agents get it wrong.',
       ],
     },
   },
@@ -43,12 +47,12 @@ export const experiences: Experience[] = [
     period: { pt: 'Ago 2025 – Jan 2026', en: 'Aug 2025 – Jan 2026' },
     items: {
       pt: [
-        'Implementação de novas funcionalidades e correção de bugs em uma aplicação Ruby on Rails, seguindo boas práticas.',
-        'Desenhei a UI/UX do novo site da empresa e contribuí com o front-end em Next.js e Tailwind.',
+        'Participei da implementação de novas funcionalidades e correções de bugs em uma aplicação Ruby on Rails, seguindo boas práticas de programação.',
+        'Desenhei a UI/UX do novo site da empresa e contribuí para o desenvolvimento do front-end utilizando Next.js e Tailwind.',
       ],
       en: [
-        'Built new features and fixed bugs in a Ruby on Rails application, following good practices.',
-        "Designed the UI/UX of the company's new website and helped build its front-end with Next.js and Tailwind.",
+        'Took part in implementing new features and bug fixes in a Ruby on Rails application, following good programming practices.',
+        "Designed the UI/UX of the company's new website and contributed to its front-end using Next.js and Tailwind.",
       ],
     },
   },
@@ -59,16 +63,10 @@ export const experiences: Experience[] = [
     period: { pt: 'Jul 2025 – Jan 2026', en: 'Jul 2025 – Jan 2026' },
     items: {
       pt: [
-        'Desenvolvimento e manutenção de projetos com Next.js, JavaScript, HTML, CSS, PHP, PostgreSQL e Bootstrap.',
-        'Trabalho próximo a uma equipe multidisciplinar, aprimorando trabalho em equipe e comunicação.',
-        'Levantamento e análise de requisitos, traduzindo necessidades dos clientes em soluções técnicas.',
-        'Contato direto com clientes, gerenciando expectativas e garantindo a satisfação.',
+        'Desenvolvi e mantive aplicações web com Next.js, PHP e PostgreSQL para clientes da empresa júnior, do levantamento de requisitos à entrega, em contato direto com os clientes.',
       ],
       en: [
-        'Built and maintained projects with Next.js, JavaScript, HTML, CSS, PHP, PostgreSQL and Bootstrap.',
-        'Worked closely with a multidisciplinary team, sharpening teamwork and communication skills.',
-        "Gathered and analyzed requirements, turning clients' needs into practical technical solutions.",
-        'Worked directly with clients, managing expectations and ensuring satisfaction.',
+        "Built and maintained web applications with Next.js, PHP and PostgreSQL for the junior enterprise's clients, from requirements gathering to delivery, in direct contact with them.",
       ],
     },
   },
@@ -79,10 +77,10 @@ export const experiences: Experience[] = [
     period: { pt: 'Ago 2023 – Ago 2025', en: 'Aug 2023 – Aug 2025' },
     items: {
       pt: [
-        'Design focado em experiência do usuário, identidade visual e comunicação, aplicando princípios de UI/UX no Figma para criar layouts intuitivos para diferentes públicos.',
+        'Criei a identidade visual e os layouts de comunicação do centro acadêmico no Figma, aplicando princípios de UI/UX.',
       ],
       en: [
-        'Design focused on user experience, visual identity and communication, applying UI/UX principles in Figma to create intuitive layouts for different audiences.',
+        'Created the visual identity and communication layouts for the student association in Figma, applying UI/UX principles.',
       ],
     },
   },
