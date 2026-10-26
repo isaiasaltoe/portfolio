@@ -57,7 +57,7 @@ export const experiences: Experience[] = [
     },
   },
   {
-    title: fullStack,
+    title: { pt: 'Desenvolvedor Full Stack (Voluntário)', en: 'Full Stack Developer (Volunteer)' },
     company: 'Cinética Jr',
     logo: cinetica,
     period: { pt: 'Jul 2025 – Jan 2026', en: 'Jul 2025 – Jan 2026' },
@@ -71,7 +71,7 @@ export const experiences: Experience[] = [
     },
   },
   {
-    title: { pt: 'Diretor de Marketing', en: 'Marketing Director' },
+    title: { pt: 'Diretor de Marketing (Voluntário)', en: 'Marketing Director (Volunteer)' },
     company: 'CACCOMP UFES',
     logo: ufes,
     period: { pt: 'Ago 2023 – Ago 2025', en: 'Aug 2023 – Aug 2025' },
