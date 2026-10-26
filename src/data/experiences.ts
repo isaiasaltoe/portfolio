@@ -40,7 +40,7 @@ export const experiences: Experience[] = [
     title: fullStack,
     company: 'Contera IO',
     logo: contera,
-    period: { pt: 'Ago 2025 – Dez 2025', en: 'Aug 2025 – Dec 2025' },
+    period: { pt: 'Ago 2025 – Jan 2026', en: 'Aug 2025 – Jan 2026' },
     items: {
       pt: [
         'Implementação de novas funcionalidades e correção de bugs em uma aplicação Ruby on Rails, seguindo boas práticas.',
@@ -56,7 +56,7 @@ export const experiences: Experience[] = [
     title: fullStack,
     company: 'Cinética Jr',
     logo: cinetica,
-    period: { pt: 'Jul 2025 – Fev 2026', en: 'Jul 2025 – Feb 2026' },
+    period: { pt: 'Jul 2025 – Jan 2026', en: 'Jul 2025 – Jan 2026' },
     items: {
       pt: [
         'Desenvolvimento e manutenção de projetos com Next.js, JavaScript, HTML, CSS, PHP, PostgreSQL e Bootstrap.',
@@ -76,7 +76,7 @@ export const experiences: Experience[] = [
     title: { pt: 'Diretor de Marketing', en: 'Marketing Director' },
     company: 'CACCOMP UFES',
     logo: ufes,
-    period: { pt: 'Jul 2024 – Dez 2025', en: 'Jul 2024 – Dec 2025' },
+    period: { pt: 'Ago 2023 – Ago 2025', en: 'Aug 2023 – Aug 2025' },
     items: {
       pt: [
         'Design focado em experiência do usuário, identidade visual e comunicação, aplicando princípios de UI/UX no Figma para criar layouts intuitivos para diferentes públicos.',
@@ -90,7 +90,7 @@ export const experiences: Experience[] = [
     title: { pt: 'Ciência da Computação', en: 'Computer Science' },
     company: 'UFES',
     logo: ufes,
-    period: { pt: 'Out 2022 – Atual', en: 'Oct 2022 – Present' },
+    period: { pt: 'Set 2022 – Atual', en: 'Sep 2022 – Present' },
     current: true,
     items: {
       pt: [
