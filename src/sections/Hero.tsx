@@ -16,15 +16,21 @@ export function Hero() {
         </p>
 
         {/* pre-line: respeita a quebra de linha (\n) do texto */}
-        <p className="mt-8 max-w-2xl text-xl whitespace-pre-line">{t.hero.bio}</p>
+        <p className="mt-8 max-w-2xl text-xl whitespace-pre-line">
+          {t.hero.bioBefore}{' '}
+          <a href="https://v360.io" target="_blank" rel="noopener noreferrer">
+            V360
+          </a>
+          {t.hero.bioAfter}
+        </p>
 
-        {/* Cliente primeiro: o botão leva aos serviços; os projetos ficam num link logo abaixo. */}
+        {/* O botão leva aos projetos; a trajetória fica num link logo abaixo. */}
         <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
-          <SketchButton href="#servicos">{t.hero.cta}</SketchButton>
+          <SketchButton href="#projetos">{t.hero.cta}</SketchButton>
           <span className="-rotate-6 font-note text-2xl text-red-pen">{t.hero.ctaNote}</span>
         </div>
-        <a href="#projetos" className="mt-5 inline-block text-lg text-pencil-light">
-          {t.hero.projectsLink}
+        <a href="#experiencias" className="mt-5 inline-block text-lg text-pencil-light">
+          {t.hero.journeyLink}
         </a>
       </div>
 

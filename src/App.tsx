@@ -8,7 +8,6 @@ import { Contact } from './sections/Contact'
 import { Experiences } from './sections/Experiences'
 import { Hero } from './sections/Hero'
 import { Projects } from './sections/Projects'
-import { Services } from './sections/Services'
 
 const year = new Date().getFullYear()
 
@@ -21,7 +20,6 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        <Services />
         <GutterDoodle offset={-20}>
           <IntegralsDoodle />
         </GutterDoodle>

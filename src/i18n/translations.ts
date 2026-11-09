@@ -1,9 +1,8 @@
 const pt = {
   meta: {
-    description: 'Crio sites, sistemas sob medida e automações para pequenas empresas. Me chama no WhatsApp e peça um orçamento sem compromisso.',
+    description: 'Estudante de Ciência da Computação na UFES e desenvolvedor Full Stack. Conheça meus projetos acadêmicos, minha trajetória e como falar comigo.',
   },
   nav: {
-    services: 'Serviços',
     projects: 'Projetos',
     experiences: 'Experiências',
     about: 'Sobre mim',
@@ -18,32 +17,26 @@ const pt = {
   },
   hero: {
     phrases: [
-      'Desenvolvedor Full Stack',
       'Estudante de Ciência da Computação na UFES',
+      'Desenvolvedor Full Stack',
       'Eterno estudante',
       'Com conhecimentos em SAP ABAP',
       'Experiência em fintechs',
       'Dev com mentalidade de produto',
     ],
-    bio: 'Presto serviços diversos de tecnologia para pequenas e médias empresas, de sites comerciais a sistemas web completos, de ponta a ponta: do desenho da interface ao deploy.\nSou desenvolvedor Full Stack e curso Ciência da Computação na UFES.',
-    cta: 'ver serviços →',
-    projectsLink: 'ou dá uma olhada nos meus projetos',
+    // a bio tem o link da V360 no meio: texto antes, nome do link e texto depois
+    bioBefore: 'Sou estudante de Ciência da Computação na UFES e sou desenvolvedor Full Stack na',
+    bioAfter:
+      '.\nAtualmente tenho direcionado meus estudos à Inteligência Artificial, desde os princípios de aprendizado de máquina até orquestração de agentes de IA, ajuste nos harness e criação de skills.',
+    cta: 'ver projetos →',
+    journeyLink: 'ou conheça minha trajetória',
     ctaNote: '← clica aqui!',
     photoAlt: 'Desenho do rosto do Isaías, de cabelo cacheado e óculos, em traço de marcador',
     photoNote: 'esse sou eu, oi!',
   },
-  services: {
-    title: 'Serviços',
-    previous: 'Página anterior',
-    next: 'Próxima página',
-    idealFor: 'Ideal para:',
-    cta: 'Vamos conversar?',
-    ctaNote: 'me conta o que você precisa e eu te passo um orçamento sob medida!',
-    whatsappMessage: 'Olá, Isaías! Vi seu site e gostaria de conversar sobre um projeto.',
-  },
   projects: {
     title: 'Projetos',
-    note: 'a sua ideia pode ser o próximo!',
+    note: 'feitos na faculdade e fora dela',
     repo: 'ver repositório',
     previous: 'Projeto anterior',
     next: 'Próximo projeto',
@@ -94,10 +87,9 @@ const pt = {
 // `typeof pt` obriga o inglês a ter exatamente as mesmas chaves do português.
 const en: typeof pt = {
   meta: {
-    description: 'I build websites, custom systems and automations for small businesses. Message me on WhatsApp for a free quote.',
+    description: 'Computer Science student at UFES and Full Stack developer. Check out my academic projects, my journey and how to reach me.',
   },
   nav: {
-    services: 'Services',
     projects: 'Projects',
     experiences: 'Experience',
     about: 'About me',
@@ -112,32 +104,25 @@ const en: typeof pt = {
   },
   hero: {
     phrases: [
-      'Full Stack Developer',
       'Computer Science Student at UFES',
+      'Full Stack Developer',
       'Forever a student',
       'Knowledge of SAP ABAP',
       'Fintech experience',
       'Product-minded developer',
     ],
-    bio: "I offer a wide range of tech services for small and medium-sized businesses, from business websites to complete web systems, end to end: from interface design to deploy.\nI'm a Full Stack developer and I study Computer Science at UFES.",
-    cta: 'see services →',
-    projectsLink: 'or take a look at my projects',
+    bioBefore: "I'm a Computer Science student at UFES and a Full Stack developer at",
+    bioAfter:
+      '.\nLately I have been focusing my studies on Artificial Intelligence, from the principles of machine learning to AI agent orchestration, harness tuning and skill creation.',
+    cta: 'see projects →',
+    journeyLink: 'or get to know my journey',
     ctaNote: '← click here!',
     photoAlt: 'Marker doodle of Isaías, with curly hair and glasses',
     photoNote: "that's me, hi!",
   },
-  services: {
-    title: 'Services',
-    previous: 'Previous page',
-    next: 'Next page',
-    idealFor: 'Great for:',
-    cta: "Let's talk?",
-    ctaNote: "tell me what you need and I'll send you a tailored quote!",
-    whatsappMessage: "Hi Isaías! I saw your website and I'd like to talk about a project.",
-  },
   projects: {
     title: 'Projects',
-    note: 'your idea could be next!',
+    note: 'built in class and beyond',
     repo: 'see repository',
     previous: 'Previous project',
     next: 'Next project',
